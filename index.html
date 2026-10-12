@@ -105,7 +105,7 @@ const D={
 'ad.games':['Jogos','Games'],'ad.news':['Notícias','News'],'ad.msgs':['Mensagens','Messages'],'ad.new':['Novo','New'],'ad.edit':['Editar','Edit'],'ad.del':['Excluir','Delete'],
 'ad.pub':['Publicar','Publish'],'ad.unpub':['Despublicar','Unpublish'],'ad.draft':['Salvar rascunho','Save draft'],'ad.prev':['Prévia','Preview'],
 'ad.confirm':['Excluir definitivamente?','Delete permanently?'],'ad.saved':['Salvo!','Saved!'],'ad.deleted':['Excluído.','Deleted.'],'ad.forbid':['Acesso restrito a administradores.','Administrators only.'],
-'ad.upload':['Enviar imagem (até 5 MB)','Upload image (up to 5 MB)'],'ad.close':['Fechar','Close'],'ad.invalid':['Preencha o slug (a-z, 0-9, hífen) e os títulos em PT e EN.','Fill the slug (a-z, 0-9, hyphen) and PT/EN titles.'],'ad.mark':['Marcar como lida','Mark as read'],'ad.badimg':['Use imagem JPG, PNG, WebP ou AVIF de até 5 MB.','Use a JPG, PNG, WebP or AVIF image up to 5 MB.'],
+'ad.upload':['Enviar imagem (até 5 MB)','Upload image (up to 5 MB)'],'ad.close':['Fechar','Close'],'ad.invalid':['Preencha o slug (a-z, 0-9, hífen) e os títulos em PT e EN.','Fill the slug (a-z, 0-9, hyphen) and PT/EN titles.'],'ad.mark':['Marcar como lida','Mark as read'],'dl':['Download','Download'],'ad.uploadf':['Enviar arquivo (até 50 MB)','Upload file (up to 50 MB)'],'ad.badfile':['Arquivo muito grande (máx. 50 MB). Use um link externo.','File too large (max. 50 MB). Use an external link.'],'ad.badimg':['Use imagem JPG, PNG, WebP ou AVIF de até 5 MB.','Use a JPG, PNG, WebP or AVIF image up to 5 MB.'],
 'st.draft':['Rascunho','Draft'],'st.published':['Publicado','Published'],'st.concept':['Conceito','Concept'],'st.in_development':['Em desenvolvimento','In development'],'st.early_access':['Acesso antecipado','Early access'],'st.released':['Lançado','Released'],
 'cat.news':['Notícia','News'],'cat.update':['Atualização','Update'],'cat.event':['Evento','Event'],'cat.devlog':['Diário de dev','Devlog'],
 'pv.title':['Privacidade','Privacy'],
@@ -117,7 +117,7 @@ if(L!=='pt'&&L!=='en')L='pt';
 const t=k=>(D[k]||[k,k])[L==='pt'?0:1];
 const pick=(o,f)=>o[f+'_'+L]||o[f+'_pt']||'';
 const B={title:['Título','Title'],summary:['Resumo','Summary'],description:['Descrição','Description'],body:['Texto','Body'],excerpt:['Resumo curto','Excerpt']};
-const F={slug:['Slug (URL)','Slug (URL)'],game_status:['Situação','Stage'],featured:['Destaque na página inicial','Featured on home'],category:['Categoria','Category'],genres:['Gêneros (separe por vírgula)','Genres (comma-separated)'],platforms:['Plataformas (separe por vírgula)','Platforms (comma-separated)'],release_date:['Data de lançamento','Release date'],cover_url:['Capa','Cover'],banner_url:['Banner','Banner'],screenshots:['Capturas (uma URL por linha)','Screenshots (one URL per line)'],video_url:['Vídeo (link do YouTube)','Video (YouTube link)'],links:['Links (Rótulo|https://url — um por linha)','Links (Label|https://url — one per line)'],image_url:['Imagem','Image']};
+const F={slug:['Slug (URL)','Slug (URL)'],game_status:['Situação','Stage'],featured:['Destaque na página inicial','Featured on home'],category:['Categoria','Category'],genres:['Gêneros (separe por vírgula)','Genres (comma-separated)'],platforms:['Plataformas (separe por vírgula)','Platforms (comma-separated)'],release_date:['Data de lançamento','Release date'],cover_url:['Capa','Cover'],banner_url:['Banner','Banner'],screenshots:['Capturas (uma URL por linha)','Screenshots (one URL per line)'],video_url:['Vídeo (link do YouTube)','Video (YouTube link)'],links:['Links (Rótulo|https://url — um por linha)','Links (Label|https://url — one per line)'],image_url:['Imagem','Image'],downloads:['Downloads (Rótulo|https://link — um por linha) ou envie um arquivo','Downloads (Label|https://link — one per line) or upload a file']};
 const lab=n=>{const m=n.match(/^(\w+)_(pt|en)$/),i=L==='pt'?0:1;return m&&B[m[1]]?B[m[1]][i]+' ('+m[2].toUpperCase()+')':(F[n]||[n,n])[i]};
 const paras=s=>String(s||'').split(/\n{2,}/).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join('');
 const fmt=d=>d?new Date(d).toLocaleDateString(L==='pt'?'pt-BR':'en-US'):'';
@@ -129,7 +129,7 @@ const vid=u=>{const m=/^https:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be
 const card=(h,img,tag,ti,tx)=>`<a class="card" href="${h}"><div class="th">${url(img)?`<img src="${url(img)}" alt="" loading="lazy">`:''}</div><div class="bd"><span class="tag">${esc(tag)}</span><h3>${esc(ti)}</h3>${tx?`<p>${esc(tx)}</p>`:''}</div></a>`;
 const gameCard=g=>card('#/games/'+encodeURIComponent(g.slug),g.cover_url,t('st.'+g.game_status),pick(g,'title'),pick(g,'summary'));
 const newsCard=n=>card('#/news/'+encodeURIComponent(n.slug),n.image_url,t('cat.'+n.category)+(n.published_at?' · '+fmt(n.published_at):''),pick(n,'title'),pick(n,'excerpt'));
-const gameView=g=>`<article class="wrap sec det">${url(g.banner_url)?`<img class="ban" src="${url(g.banner_url)}" alt="">`:''}<span class="tag">${t('st.'+g.game_status)}</span><h1>${esc(pick(g,'title'))}</h1><p>${[...(g.genres||[]),...(g.platforms||[])].map(x=>`<span class="chip">${esc(x)}</span>`).join('')}${g.release_date?`<span class="chip">${t('released')}: ${esc(g.release_date)}</span>`:''}</p>${paras(pick(g,'description')||pick(g,'summary'))}${vid(g.video_url)}${(g.screenshots||[]).filter(url).length?`<h2>${t('shots')}</h2><div class="shots">${g.screenshots.filter(url).map(s=>`<img src="${url(s)}" alt="" loading="lazy">`).join('')}</div>`:''}${(g.links||[]).filter(l=>url(l.url)).length?`<h2>${t('links')}</h2><div class="acts">${g.links.filter(l=>url(l.url)).map(l=>`<a class="btn ghost" href="${url(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)}</a>`).join('')}</div>`:''}</article>`;
+const gameView=g=>`<article class="wrap sec det">${url(g.banner_url)?`<img class="ban" src="${url(g.banner_url)}" alt="">`:''}<span class="tag">${t('st.'+g.game_status)}</span><h1>${esc(pick(g,'title'))}</h1><p>${[...(g.genres||[]),...(g.platforms||[])].map(x=>`<span class="chip">${esc(x)}</span>`).join('')}${g.release_date?`<span class="chip">${t('released')}: ${esc(g.release_date)}</span>`:''}</p>${paras(pick(g,'description')||pick(g,'summary'))}${(g.downloads||[]).filter(l=>url(l.url)).length?`<h2>${t('dl')}</h2><div class="acts">${g.downloads.filter(l=>url(l.url)).map(l=>`<a class="btn" href="${url(l.url)}" target="_blank" rel="noopener noreferrer">⬇ ${esc(l.label)}</a>`).join('')}</div>`:''}${vid(g.video_url)}${(g.screenshots||[]).filter(url).length?`<h2>${t('shots')}</h2><div class="shots">${g.screenshots.filter(url).map(s=>`<img src="${url(s)}" alt="" loading="lazy">`).join('')}</div>`:''}${(g.links||[]).filter(l=>url(l.url)).length?`<h2>${t('links')}</h2><div class="acts">${g.links.filter(l=>url(l.url)).map(l=>`<a class="btn ghost" href="${url(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)}</a>`).join('')}</div>`:''}</article>`;
 const newsView=n=>`<article class="wrap sec det">${url(n.image_url)?`<img class="ban" src="${url(n.image_url)}" alt="">`:''}<span class="tag">${t('cat.'+n.category)}${n.published_at?' · '+fmt(n.published_at):''}</span><h1>${esc(pick(n,'title'))}</h1>${paras(pick(n,'body')||pick(n,'excerpt'))}</article>`;
 const empty=()=>`<p class="muted">${t('empty')}</p>`;
 
@@ -202,7 +202,7 @@ function reset(){
 
 /* ---------- Painel administrativo (a segurança real é o RLS do Supabase) ---------- */
 const SPEC={
-  games:{f:[['slug','text'],['game_status','sel',GS,'st.'],['featured','chk'],['title_pt','text'],['title_en','text'],['summary_pt','area'],['summary_en','area'],['description_pt','area'],['description_en','area'],['genres','list'],['platforms','list'],['release_date','date'],['cover_url','img'],['banner_url','img'],['screenshots','imgs'],['video_url','text'],['links','links']],view:gameView},
+  games:{f:[['slug','text'],['game_status','sel',GS,'st.'],['featured','chk'],['title_pt','text'],['title_en','text'],['summary_pt','area'],['summary_en','area'],['description_pt','area'],['description_en','area'],['genres','list'],['platforms','list'],['release_date','date'],['cover_url','img'],['banner_url','img'],['screenshots','imgs'],['video_url','text'],['links','links'],['downloads','dl']],view:gameView},
   news:{f:[['slug','text'],['category','sel',CT,'cat.'],['title_pt','text'],['title_en','text'],['excerpt_pt','area'],['excerpt_en','area'],['body_pt','area'],['body_en','area'],['image_url','img']],view:newsView}};
 async function admin(a,b,c){
   if(need())return;
@@ -240,6 +240,7 @@ async function adForm(tab,id){
     if(ty==='sel')return `<div class="fld">${l}<select id="f_${n}">${o.map(x=>`<option value="${x}" ${v===x?'selected':''}>${t(pf+x)}</option>`).join('')}</select></div>`;
     if(ty==='imgs')return `<div class="fld">${l}<textarea id="f_${n}" rows="4">${esc((v||[]).join('\n'))}</textarea>${up}</div>`;
     if(ty==='links')return `<div class="fld">${l}<textarea id="f_${n}" rows="3">${esc((v||[]).map(x=>x.label+'|'+x.url).join('\n'))}</textarea></div>`;
+    if(ty==='dl')return `<div class="fld">${l}<textarea id="f_${n}" rows="3">${esc((v||[]).map(x=>x.label+'|'+x.url).join('\n'))}</textarea><input class="fu" type="file" data-t="${n}" data-b="downloads" aria-label="${t('ad.uploadf')}"><span class="muted"> ${t('ad.uploadf')}</span></div>`;
     if(ty==='list')return `<div class="fld">${l}<input id="f_${n}" value="${esc((v||[]).join(', '))}"></div>`;
     if(ty==='img')return `<div class="fld">${l}<input id="f_${n}" type="url" placeholder="https://" value="${esc(v||'')}">${up}</div>`;
     return `<div class="fld">${l}<input id="f_${n}" type="${ty==='date'?'date':'text'}" value="${esc(v||'')}"></div>`};
@@ -248,19 +249,22 @@ async function adForm(tab,id){
     for(const [n,ty] of S.f){const e=$('#f_'+n);let v=ty==='chk'?e.checked:e.value.trim();
       if(ty==='list')v=v.split(',').map(s=>s.trim()).filter(Boolean);
       else if(ty==='imgs')v=v.split('\n').map(s=>s.trim()).filter(x=>/^https:\/\//.test(x));
-      else if(ty==='links')v=v.split('\n').map(l=>{const [a,...r]=l.split('|');return{label:a.trim(),url:r.join('|').trim()}}).filter(x=>x.label&&/^https:\/\//.test(x.url));
+      else if(ty==='links'||ty==='dl')v=v.split('\n').map(l=>{const [a,...r]=l.split('|');return{label:a.trim(),url:r.join('|').trim()}}).filter(x=>x.label&&/^https:\/\//.test(x.url));
       else if(ty==='date'||ty==='img'||n==='video_url')v=v||null;
       o[n]=v}
     if(tab==='news')o.published_at=st==='published'?(cur.published_at||new Date().toISOString()):(cur.published_at||null);
     return o};
   const form=$('#af');
   form.addEventListener('change',async e=>{const i=e.target;if(i.type!=='file'||!i.files.length)return;
+    const dl=i.dataset.b==='downloads',bk=dl?'downloads':'media';
     try{for(const f of i.files){
-      if(!/^image\/(jpeg|png|webp|avif)$/.test(f.type)||f.size>5242880)throw new Error(t('ad.badimg'));
-      const p=`${tab}/${crypto.randomUUID()}.${f.type.split('/')[1].replace('jpeg','jpg')}`;
-      await q(sb.storage.from('media').upload(p,f,{contentType:f.type}));
-      const u=sb.storage.from('media').getPublicUrl(p).data.publicUrl,tg=$('#f_'+i.dataset.t);
-      tg.value=i.multiple&&tg.value?tg.value+'\n'+u:u}
+      let p;
+      if(dl){if(f.size>52428800)throw new Error(t('ad.badfile'));p=`${tab}/${crypto.randomUUID()}-${f.name.replace(/[^\w.\-]+/g,'_')}`}
+      else{if(!/^image\/(jpeg|png|webp|avif)$/.test(f.type)||f.size>5242880)throw new Error(t('ad.badimg'));p=`${tab}/${crypto.randomUUID()}.${f.type.split('/')[1].replace('jpeg','jpg')}`}
+      await q(sb.storage.from(bk).upload(p,f,{contentType:f.type||'application/octet-stream'}));
+      let u=sb.storage.from(bk).getPublicUrl(p).data.publicUrl;const tg=$('#f_'+i.dataset.t);
+      if(dl)u=f.name.replace(/\|/g,'-')+'|'+u;
+      tg.value=(i.multiple||dl)&&tg.value?tg.value+'\n'+u:u}
       toast(t('ad.saved'))}catch(er){toast(er.message,1)}i.value=''});
   form.addEventListener('click',async e=>{const b=e.target.closest('button');if(!b)return;
     if(b.id==='pv'){$('#dlgc').innerHTML=S.view(collect(cur.status||'draft'));$('#dx').textContent=t('ad.close');$('#dlg').showModal();return}
