@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Black Forge — Estúdio de Jogos</title>
+<meta name="description" content="Black Forge, estúdio independente de jogos forjados com paixão.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Black Forge">
+<meta property="og:title" content="Black Forge — Estúdio de Jogos">
+<meta property="og:description" content="Black Forge, estúdio independente de jogos forjados com paixão.">
+<meta name="theme-color" content="#101010">
+<style>
+:root{--black:#101010;--steel:#252525;--ember:#E56A2F;--paper:#F0EEE9;--line:#3a3a3a;--muted:#a9a6a0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--paper);font:16px/1.6 "Segoe UI",Roboto,system-ui,sans-serif;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.015) 0 2px,transparent 2px 6px)}
+h1,h2,h3,.brand{font-family:Impact,"Arial Narrow Bold","Segoe UI",sans-serif;letter-spacing:.04em;text-transform:uppercase;margin:0 0 .6rem}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
+.wrap{width:min(1120px,92%);margin:0 auto}.narrow{max-width:560px}
+.skip{position:absolute;left:-999px;background:var(--ember);color:#000;padding:.6rem 1rem;z-index:99}.skip:focus{left:8px;top:8px}
+.top{position:sticky;top:0;z-index:20;background:rgba(16,16,16,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:62px}
+.brand{font-size:1.25rem;margin:0}.mk{color:var(--ember)}
+.menu{display:flex;align-items:center;gap:1.2rem}
+.menu a:not(.btn){padding:.4rem 0;border-bottom:2px solid transparent;color:var(--muted)}
+.menu a:not(.btn):hover,.menu a[aria-current]{color:var(--paper);border-color:var(--ember)}
+.lang{background:none;border:1px solid var(--line);color:var(--paper);padding:.35rem .7rem;cursor:pointer;font:inherit}.lang:hover{border-color:var(--ember)}
+.burger{display:none;background:none;border:1px solid var(--line);padding:.6rem;cursor:pointer}.burger i{display:block;width:22px;height:2px;background:var(--paper);margin:4px 0}
+.btn{display:inline-block;background:var(--ember);color:#101010;font:700 1rem inherit;padding:.8rem 1.5rem;border:2px solid var(--ember);cursor:pointer;text-transform:uppercase;letter-spacing:.06em;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(229,106,47,.35)}
+.btn.ghost{background:transparent;color:var(--paper);border-color:var(--paper)}.btn.danger{background:transparent;color:#ff7a6b;border-color:#ff7a6b}
+.btn.sm{padding:.35rem .8rem;font-size:.82rem}
+.lnk{background:none;border:0;color:var(--ember);cursor:pointer;font:inherit;padding:.8rem 0;display:inline-block}
+.hero{position:relative;overflow:hidden;padding:clamp(4rem,14vw,9rem) 0;background:radial-gradient(ellipse at 70% 110%,rgba(229,106,47,.35),transparent 60%),var(--steel)}
+.hero h1{font-size:clamp(2.6rem,9vw,5.5rem);line-height:1.02;max-width:12ch}
+.eyebrow{color:var(--ember);letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;margin:0 0 1rem}
+.lead{max-width:56ch;color:var(--muted);font-size:1.15rem}.acts{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem;align-items:center}
+.emb{position:absolute;inset:0;pointer-events:none;background:radial-gradient(3px 3px at 20% 90%,var(--ember),transparent),radial-gradient(2px 2px at 60% 95%,#ffb27a,transparent),radial-gradient(3px 3px at 85% 92%,var(--ember),transparent),radial-gradient(2px 2px at 40% 98%,#ffb27a,transparent);animation:rise 7s linear infinite}
+@keyframes rise{from{transform:translateY(40px);opacity:1}to{transform:translateY(-420px);opacity:0}}
+.sec{padding:2.5rem 0}.sec h2{font-size:1.7rem;border-left:5px solid var(--ember);padding-left:.8rem;margin-bottom:1.3rem}.sec h1{font-size:2.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.3rem}
+.card{background:var(--steel);border:1px solid var(--line);transition:transform .25s,border-color .25s;display:block}.card:hover{transform:translateY(-4px);border-color:var(--ember)}
+.th{aspect-ratio:16/9;background:linear-gradient(135deg,#1b1b1b,#333)}.th img{width:100%;height:100%;object-fit:cover}
+.bd{padding:1rem 1.1rem 1.3rem}.bd h3{font-size:1.2rem;margin:.3rem 0}.bd p{margin:0;color:var(--muted);font-size:.95rem}
+.tag{font-size:.75rem;color:var(--ember);text-transform:uppercase;letter-spacing:.12em}.muted{color:var(--muted)}
+.chip{display:inline-block;border:1px solid var(--line);padding:.1rem .6rem;margin:0 .4rem .4rem 0;font-size:.85rem;color:var(--muted)}
+.det{max-width:860px}.ban{width:100%;aspect-ratio:21/9;object-fit:cover;margin-bottom:1.2rem;border:1px solid var(--line)}
+.vid{aspect-ratio:16/9;margin:1.2rem 0}.vid iframe{width:100%;height:100%;border:0}
+.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem;margin:1.2rem 0}.shots img{border:1px solid var(--line)}
+.cta{text-align:center;background:var(--steel);border:1px solid var(--line);margin-bottom:3rem;padding:2.5rem 1rem}.cta p{max-width:50ch;margin:0 auto 1.5rem;color:var(--muted)}
+.filters{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:.7rem;margin-bottom:1.3rem}
+input,select,textarea{width:100%;background:#1a1a1a;color:var(--paper);border:1px solid var(--line);padding:.7rem;font:inherit}input:focus,select:focus,textarea:focus{border-color:var(--ember)}
+.frm .fld{margin-bottom:1rem}.fld label{display:block;margin-bottom:.3rem;font-size:.9rem;color:var(--muted)}.fld.chk{display:flex;gap:.6rem;align-items:center}.fld.chk input{width:auto}.fld.chk label{margin:0}
+.hp{position:absolute;left:-9999px;width:1px}.fld .fu{margin-top:.4rem;font-size:.85rem}
+.adm{display:grid;grid-template-columns:190px 1fr;gap:1.6rem}.side{display:flex;flex-direction:column;gap:.3rem}
+.side a{padding:.6rem .9rem;border-left:3px solid var(--line);color:var(--muted)}.side a[aria-current]{border-color:var(--ember);color:var(--paper);background:var(--steel)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.item{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap;background:var(--steel);border:1px solid var(--line);padding:.9rem 1rem;margin-bottom:.6rem}
+.item.col{align-items:flex-start}.unread{border-left:4px solid var(--ember)}.pre{white-space:pre-wrap}.item .acts{margin:0}
+dialog{width:min(900px,94vw);max-height:90vh;overflow:auto;background:var(--black);color:var(--paper);border:1px solid var(--ember);padding:1rem}dialog::backdrop{background:rgba(0,0,0,.75)}
+#toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,150%);background:var(--paper);color:#101010;padding:.8rem 1.3rem;font-weight:600;z-index:60;transition:transform .3s;max-width:90vw}
+#toast.show{transform:translate(-50%,0)}#toast.bad{background:#ff7a6b}
+.foot{border-top:1px solid var(--line);padding:1.5rem 0;color:var(--muted);font-size:.9rem}.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+@media(max-width:760px){.burger{display:block}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}
+.menu{display:none;position:absolute;top:62px;left:0;right:0;background:var(--black);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:1rem 4%;gap:.8rem}.menu.open{display:flex}
+.adm{grid-template-columns:1fr}.side{flex-direction:row;flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#app" id="sk"></a>
+<div id="hd"></div>
+<main id="app" tabindex="-1"></main>
+<div id="ft"></div>
+<dialog id="dlg"><button class="btn sm" id="dx"></button><div id="dlgc"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+/* ============ CONFIGURAÇÃO (cole suas chaves PÚBLICAS; nunca a service_role) ============ */
+const CFG={URL:"https://dhvsmmvisnlvgabebxub.supabase.co",KEY:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRodnNtbXZpc25sdmdhYmVieHViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3NTc4ODMsImV4cCI6MjEwNzMzMzg4M30.XRwhVqcpC3VSjlHAKTsArr7DcHCGQTh3JUb7y5QwoVM",
+  LINKS:{Discord:"",YouTube:"",Instagram:"",X:""}}; // links da comunidade (https://...)
+/* ============================================================================================ */
+const sb=(/^https:\/\//.test(CFG.URL)&&!/^COLE/.test(CFG.KEY)&&window.supabase)?supabase.createClient(CFG.URL,CFG.KEY):null;
+const $=s=>document.querySelector(s),app=$('#app');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const url=u=>/^https:\/\//.test(u||'')?esc(u):'';
+const GS=['concept','in_development','early_access','released'],CT=['news','update','event','devlog'];
+const D={
+'skip':['Pular para o conteúdo','Skip to content'],
+'nav.home':['Início','Home'],'nav.games':['Jogos','Games'],'nav.news':['Notícias','News'],'nav.community':['Comunidade','Community'],'nav.contact':['Contato','Contact'],'nav.login':['Entrar','Sign in'],'nav.logout':['Sair','Sign out'],'nav.admin':['Painel','Admin'],'nav.menu':['Abrir menu','Open menu'],'lang':['Mudar idioma','Change language'],
+'meta':['Black Forge, estúdio independente de jogos forjados com paixão.','Black Forge, an independent studio crafting games with passion.'],
+'hero.eyebrow':['Estúdio independente','Independent studio'],'hero.title':['Jogos forjados no fogo','Games forged in fire'],
+'hero.sub':['Criamos experiências autorais com aço, brasa e muita dedicação.','We craft original experiences with steel, embers and a lot of dedication.'],
+'hero.cta1':['Ver jogos','View games'],'hero.cta2':['Entrar na comunidade','Join the community'],
+'home.featured':['Jogos em destaque','Featured games'],'home.latest':['Notícias recentes','Latest news'],
+'empty':['Nada publicado ainda.','Nothing here yet.'],'err':['Não foi possível carregar agora.','Could not load right now.'],
+'noconf':['Configure a URL e a chave do Supabase no início do script do index.html.','Set the Supabase URL and key at the top of the index.html script.'],
+'back':['← Voltar','← Back'],'search':['Buscar jogos…','Search games…'],'genre':['Gênero','Genre'],'platform':['Plataforma','Platform'],'status':['Situação','Stage'],'any':['Todos','All'],
+'none':['Nenhum resultado.','No results.'],'released':['Lançamento','Release'],'links':['Links','Links'],'shots':['Capturas de tela','Screenshots'],'gtitle':['Jogos','Games'],'ntitle':['Notícias','News'],
+'comm.title':['Comunidade','Community'],'comm.text':['Acompanhe novidades, converse com o time e ajude a moldar nossos jogos.','Follow updates, chat with the team and help shape our games.'],'comm.soon':['Links em breve.','Links coming soon.'],
+'ct.title':['Contato','Contact'],'ct.name':['Nome','Name'],'ct.email':['E-mail','Email'],'ct.subject':['Assunto (opcional)','Subject (optional)'],'ct.msg':['Mensagem','Message'],'ct.send':['Enviar','Send'],'ct.ok':['Mensagem enviada!','Message sent!'],
+'au.in':['Entrar','Sign in'],'au.up':['Criar conta','Create account'],'au.pass':['Senha (mín. 8 caracteres)','Password (min. 8 chars)'],'au.forgot':['Esqueci minha senha','Forgot my password'],
+'au.mail':['Enviamos um e-mail. Confira sua caixa de entrada.','We sent you an email. Check your inbox.'],'au.new':['Nova senha','New password'],'au.saved':['Senha atualizada!','Password updated!'],'au.need':['Informe o e-mail.','Enter your email.'],'au.as':['Conectado como','Signed in as'],
+'ad.games':['Jogos','Games'],'ad.news':['Notícias','News'],'ad.msgs':['Mensagens','Messages'],'ad.new':['Novo','New'],'ad.edit':['Editar','Edit'],'ad.del':['Excluir','Delete'],
+'ad.pub':['Publicar','Publish'],'ad.unpub':['Despublicar','Unpublish'],'ad.draft':['Salvar rascunho','Save draft'],'ad.prev':['Prévia','Preview'],
+'ad.confirm':['Excluir definitivamente?','Delete permanently?'],'ad.saved':['Salvo!','Saved!'],'ad.deleted':['Excluído.','Deleted.'],'ad.forbid':['Acesso restrito a administradores.','Administrators only.'],
+'ad.upload':['Enviar imagem (até 5 MB)','Upload image (up to 5 MB)'],'ad.close':['Fechar','Close'],'ad.invalid':['Preencha o slug (a-z, 0-9, hífen) e os títulos em PT e EN.','Fill the slug (a-z, 0-9, hyphen) and PT/EN titles.'],'ad.mark':['Marcar como lida','Mark as read'],'ad.badimg':['Use imagem JPG, PNG, WebP ou AVIF de até 5 MB.','Use a JPG, PNG, WebP or AVIF image up to 5 MB.'],
+'st.draft':['Rascunho','Draft'],'st.published':['Publicado','Published'],'st.concept':['Conceito','Concept'],'st.in_development':['Em desenvolvimento','In development'],'st.early_access':['Acesso antecipado','Early access'],'st.released':['Lançado','Released'],
+'cat.news':['Notícia','News'],'cat.update':['Atualização','Update'],'cat.event':['Evento','Event'],'cat.devlog':['Diário de dev','Devlog'],
+'pv.title':['Privacidade','Privacy'],
+'pv.body':['Coletamos apenas o e-mail e a senha (armazenada de forma criptografada) de quem cria conta e as mensagens enviadas pelo formulário de contato. Guardamos no seu navegador apenas a preferência de idioma e a sessão de login. Não vendemos dados. Para pedir a exclusão dos seus dados, fale conosco pela página de contato.','We only collect the email and password (stored encrypted) of people who create an account and the messages sent through the contact form. Your browser stores only your language preference and login session. We do not sell data. To request deletion of your data, reach us through the contact page.'],
+'nf.title':['Página não encontrada','Page not found'],'nf.text':['O conteúdo que você procura não existe ou foi removido.','The content you are looking for does not exist or was removed.'],'nf.home':['Voltar ao início','Back to home'],
+'ft':['Todos os direitos reservados.','All rights reserved.']};
+let L='pt';try{L=localStorage.getItem('bf_lang')||(/^pt/i.test(navigator.language)?'pt':'en')}catch(e){L=/^pt/i.test(navigator.language)?'pt':'en'}
+if(L!=='pt'&&L!=='en')L='pt';
+const t=k=>(D[k]||[k,k])[L==='pt'?0:1];
+const pick=(o,f)=>o[f+'_'+L]||o[f+'_pt']||'';
+const B={title:['Título','Title'],summary:['Resumo','Summary'],description:['Descrição','Description'],body:['Texto','Body'],excerpt:['Resumo curto','Excerpt']};
+const F={slug:['Slug (URL)','Slug (URL)'],game_status:['Situação','Stage'],featured:['Destaque na página inicial','Featured on home'],category:['Categoria','Category'],genres:['Gêneros (separe por vírgula)','Genres (comma-separated)'],platforms:['Plataformas (separe por vírgula)','Platforms (comma-separated)'],release_date:['Data de lançamento','Release date'],cover_url:['Capa','Cover'],banner_url:['Banner','Banner'],screenshots:['Capturas (uma URL por linha)','Screenshots (one URL per line)'],video_url:['Vídeo (link do YouTube)','Video (YouTube link)'],links:['Links (Rótulo|https://url — um por linha)','Links (Label|https://url — one per line)'],image_url:['Imagem','Image']};
+const lab=n=>{const m=n.match(/^(\w+)_(pt|en)$/),i=L==='pt'?0:1;return m&&B[m[1]]?B[m[1]][i]+' ('+m[2].toUpperCase()+')':(F[n]||[n,n])[i]};
+const paras=s=>String(s||'').split(/\n{2,}/).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join('');
+const fmt=d=>d?new Date(d).toLocaleDateString(L==='pt'?'pt-BR':'en-US'):'';
+const toast=(m,bad)=>{const e=$('#toast');e.textContent=m;e.className='show'+(bad?' bad':'');clearTimeout(toast.t);toast.t=setTimeout(()=>e.className='',4500)};
+const setMeta=(ti,de)=>{document.title=(ti?ti+' — ':'')+'Black Forge';const d=de||t('meta');$('meta[name=description]').content=d;$('meta[property="og:title"]').content=document.title;$('meta[property="og:description"]').content=d};
+const q=async p=>{const r=await p;if(r.error)throw r.error;return r.data};
+const need=()=>{if(sb)return false;app.innerHTML=`<section class="wrap sec"><p class="muted">${t('noconf')}</p></section>`;return true};
+const vid=u=>{const m=/^https:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]{11})/.exec(u||'');return m?`<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/${m[1]}" title="Video" allowfullscreen loading="lazy"></iframe></div>`:''};
+const card=(h,img,tag,ti,tx)=>`<a class="card" href="${h}"><div class="th">${url(img)?`<img src="${url(img)}" alt="" loading="lazy">`:''}</div><div class="bd"><span class="tag">${esc(tag)}</span><h3>${esc(ti)}</h3>${tx?`<p>${esc(tx)}</p>`:''}</div></a>`;
+const gameCard=g=>card('#/games/'+encodeURIComponent(g.slug),g.cover_url,t('st.'+g.game_status),pick(g,'title'),pick(g,'summary'));
+const newsCard=n=>card('#/news/'+encodeURIComponent(n.slug),n.image_url,t('cat.'+n.category)+(n.published_at?' · '+fmt(n.published_at):''),pick(n,'title'),pick(n,'excerpt'));
+const gameView=g=>`<article class="wrap sec det">${url(g.banner_url)?`<img class="ban" src="${url(g.banner_url)}" alt="">`:''}<span class="tag">${t('st.'+g.game_status)}</span><h1>${esc(pick(g,'title'))}</h1><p>${[...(g.genres||[]),...(g.platforms||[])].map(x=>`<span class="chip">${esc(x)}</span>`).join('')}${g.release_date?`<span class="chip">${t('released')}: ${esc(g.release_date)}</span>`:''}</p>${paras(pick(g,'description')||pick(g,'summary'))}${vid(g.video_url)}${(g.screenshots||[]).filter(url).length?`<h2>${t('shots')}</h2><div class="shots">${g.screenshots.filter(url).map(s=>`<img src="${url(s)}" alt="" loading="lazy">`).join('')}</div>`:''}${(g.links||[]).filter(l=>url(l.url)).length?`<h2>${t('links')}</h2><div class="acts">${g.links.filter(l=>url(l.url)).map(l=>`<a class="btn ghost" href="${url(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)}</a>`).join('')}</div>`:''}</article>`;
+const newsView=n=>`<article class="wrap sec det">${url(n.image_url)?`<img class="ban" src="${url(n.image_url)}" alt="">`:''}<span class="tag">${t('cat.'+n.category)}${n.published_at?' · '+fmt(n.published_at):''}</span><h1>${esc(pick(n,'title'))}</h1>${paras(pick(n,'body')||pick(n,'excerpt'))}</article>`;
+const empty=()=>`<p class="muted">${t('empty')}</p>`;
+
+/* ---------- Páginas públicas ---------- */
+async function home(){
+  setMeta('');
+  app.innerHTML=`<section class="hero"><div class="emb" aria-hidden="true"></div><div class="wrap"><p class="eyebrow">${t('hero.eyebrow')}</p><h1>${t('hero.title')}</h1><p class="lead">${t('hero.sub')}</p><div class="acts"><a class="btn" href="#/games">${t('hero.cta1')}</a><a class="btn ghost" href="#/community">${t('hero.cta2')}</a></div></div></section><section class="wrap sec"><h2>${t('home.featured')}</h2><div id="hf" class="grid"></div></section><section class="wrap sec"><h2>${t('home.latest')}</h2><div id="hn" class="grid"></div></section><section class="wrap cta"><h2>${t('comm.title')}</h2><p>${t('comm.text')}</p><a class="btn" href="#/community">${t('hero.cta2')}</a></section>`;
+  if(!sb){$('#hf').innerHTML=$('#hn').innerHTML=`<p class="muted">${t('noconf')}</p>`;return}
+  try{
+    const [g,n]=await Promise.all([
+      q(sb.from('games').select('*').eq('status','published').eq('featured',true).order('created_at',{ascending:false}).limit(3)),
+      q(sb.from('news').select('*').eq('status','published').order('published_at',{ascending:false}).limit(3))]);
+    $('#hf').innerHTML=g.length?g.map(gameCard).join(''):empty();
+    $('#hn').innerHTML=n.length?n.map(newsCard).join(''):empty();
+  }catch(e){$('#hf').innerHTML=$('#hn').innerHTML=`<p class="muted">${t('err')}</p>`}
+}
+async function gamesPage(){
+  if(need())return;setMeta(t('gtitle'),'');
+  const d=await q(sb.from('games').select('*').eq('status','published').order('created_at',{ascending:false}));
+  const uq=k=>[...new Set(d.flatMap(g=>g[k]||[]))].sort();
+  const op=(a,f)=>`<option value="">${f}: ${t('any')}</option>`+a.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');
+  app.innerHTML=`<section class="wrap sec"><h1>${t('gtitle')}</h1><div class="filters"><input id="fq" type="search" placeholder="${t('search')}" aria-label="${t('search')}"><select id="fg" aria-label="${t('genre')}">${op(uq('genres'),t('genre'))}</select><select id="fp" aria-label="${t('platform')}">${op(uq('platforms'),t('platform'))}</select><select id="fs" aria-label="${t('status')}"><option value="">${t('status')}: ${t('any')}</option>${GS.map(s=>`<option value="${s}">${t('st.'+s)}</option>`).join('')}</select></div><div id="gl" class="grid" aria-live="polite"></div></section>`;
+  const draw=()=>{const s=$('#fq').value.toLowerCase(),g=$('#fg').value,p=$('#fp').value,st=$('#fs').value;
+    const r=d.filter(x=>(!s||(x.title_pt+' '+x.title_en+' '+x.summary_pt+' '+x.summary_en).toLowerCase().includes(s))&&(!g||(x.genres||[]).includes(g))&&(!p||(x.platforms||[]).includes(p))&&(!st||x.game_status===st));
+    $('#gl').innerHTML=r.length?r.map(gameCard).join(''):`<p class="muted">${t('none')}</p>`};
+  ['fq','fg','fp','fs'].forEach(i=>$('#'+i).addEventListener('input',draw));draw();
+}
+async function newsPage(){
+  if(need())return;setMeta(t('ntitle'),'');
+  const d=await q(sb.from('news').select('*').eq('status','published').order('published_at',{ascending:false}));
+  app.innerHTML=`<section class="wrap sec"><h1>${t('ntitle')}</h1><div class="grid">${d.length?d.map(newsCard).join(''):empty()}</div></section>`;
+}
+async function detail(tab,slug){
+  if(need())return;
+  const d=await q(sb.from(tab).select('*').eq('slug',slug).eq('status','published').maybeSingle());
+  if(!d)return nf();
+  setMeta(pick(d,'title'),pick(d,tab==='games'?'summary':'excerpt'));
+  app.innerHTML=`<div class="wrap"><a class="lnk" href="#/${tab}">${t('back')}</a></div>`+(tab==='games'?gameView(d):newsView(d));
+}
+function comm(){
+  setMeta(t('comm.title'),t('comm.text'));
+  const ls=Object.entries(CFG.LINKS).filter(([,u])=>/^https:\/\//.test(u));
+  app.innerHTML=`<section class="wrap sec"><h1>${t('comm.title')}</h1><p class="lead">${t('comm.text')}</p><div class="acts">${ls.length?ls.map(([k,u])=>`<a class="btn" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(k)}</a>`).join(''):`<p class="muted">${t('comm.soon')}</p>`}</div></section>`;
+}
+function contact(){
+  if(need())return;setMeta(t('ct.title'),'');
+  const f=[['name','text','ct.name',100],['email','email','ct.email',200],['subject','text','ct.subject',150]];
+  app.innerHTML=`<section class="wrap sec narrow"><h1>${t('ct.title')}</h1><form id="cf" class="frm">${f.map(([n,ty,l,m])=>`<div class="fld"><label for="c_${n}">${t(l)}</label><input id="c_${n}" type="${ty}" maxlength="${m}" ${n!=='subject'?'required':''}></div>`).join('')}<div class="fld"><label for="c_message">${t('ct.msg')}</label><textarea id="c_message" rows="6" minlength="5" maxlength="4000" required></textarea></div><input id="c_web" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="btn">${t('ct.send')}</button></form></section>`;
+  $('#cf').onsubmit=async e=>{e.preventDefault();if($('#c_web').value)return;
+    try{await q(sb.from('messages').insert({name:$('#c_name').value.trim(),email:$('#c_email').value.trim(),subject:$('#c_subject').value.trim(),message:$('#c_message').value.trim()}));e.target.reset();toast(t('ct.ok'))}catch(er){toast(er.message,1)}};
+}
+function privacy(){setMeta(t('pv.title'),'');app.innerHTML=`<section class="wrap sec det"><h1>${t('pv.title')}</h1><p>${t('pv.body')}</p></section>`}
+function nf(){setMeta(t('nf.title'),'');app.innerHTML=`<section class="wrap sec"><h1>404 — ${t('nf.title')}</h1><p class="muted">${t('nf.text')}</p><a class="btn" href="#/">${t('nf.home')}</a></section>`}
+
+/* ---------- Login, cadastro, recuperação ---------- */
+function login(){
+  if(need())return;setMeta(t('nav.login'),'');
+  if(user){app.innerHTML=`<section class="wrap sec narrow"><h1>${t('nav.login')}</h1><p>${t('au.as')} <b>${esc(user.email)}</b></p>${isAdmin?`<a class="btn" href="#/admin">${t('nav.admin')}</a> `:''}<button class="btn ghost" id="lo2">${t('nav.logout')}</button></section>`;$('#lo2').onclick=()=>sb.auth.signOut();return}
+  app.innerHTML=`<section class="wrap sec narrow"><h1>${t('nav.login')}</h1><form id="af" class="frm"><div class="fld"><label for="em">${t('ct.email')}</label><input id="em" type="email" required autocomplete="email"></div><div class="fld"><label for="pw">${t('au.pass')}</label><input id="pw" type="password" minlength="8" required autocomplete="current-password"></div><div class="acts"><button class="btn">${t('au.in')}</button><button class="btn ghost" type="button" id="su">${t('au.up')}</button></div><button class="lnk" type="button" id="fgp">${t('au.forgot')}</button></form></section>`;
+  const base=location.origin+location.pathname;
+  $('#af').onsubmit=async e=>{e.preventDefault();try{await q(sb.auth.signInWithPassword({email:$('#em').value.trim(),password:$('#pw').value}));location.hash='#/'}catch(er){toast(er.message,1)}};
+  $('#su').onclick=async()=>{if(!$('#af').reportValidity())return;try{await q(sb.auth.signUp({email:$('#em').value.trim(),password:$('#pw').value,options:{emailRedirectTo:base}}));toast(t('au.mail'))}catch(er){toast(er.message,1)}};
+  $('#fgp').onclick=async()=>{const m=$('#em').value.trim();if(!m)return toast(t('au.need'),1);try{await q(sb.auth.resetPasswordForEmail(m,{redirectTo:base}));toast(t('au.mail'))}catch(er){toast(er.message,1)}};
+}
+function reset(){
+  if(need())return;setMeta(t('au.new'),'');
+  app.innerHTML=`<section class="wrap sec narrow"><h1>${t('au.new')}</h1><form id="rf" class="frm"><div class="fld"><label for="np">${t('au.new')}</label><input id="np" type="password" minlength="8" required autocomplete="new-password"></div><button class="btn">OK</button></form></section>`;
+  $('#rf').onsubmit=async e=>{e.preventDefault();try{await q(sb.auth.updateUser({password:$('#np').value}));toast(t('au.saved'));location.hash='#/'}catch(er){toast(er.message,1)}};
+}
+
+/* ---------- Painel administrativo (a segurança real é o RLS do Supabase) ---------- */
+const SPEC={
+  games:{f:[['slug','text'],['game_status','sel',GS,'st.'],['featured','chk'],['title_pt','text'],['title_en','text'],['summary_pt','area'],['summary_en','area'],['description_pt','area'],['description_en','area'],['genres','list'],['platforms','list'],['release_date','date'],['cover_url','img'],['banner_url','img'],['screenshots','imgs'],['video_url','text'],['links','links']],view:gameView},
+  news:{f:[['slug','text'],['category','sel',CT,'cat.'],['title_pt','text'],['title_en','text'],['excerpt_pt','area'],['excerpt_en','area'],['body_pt','area'],['body_en','area'],['image_url','img']],view:newsView}};
+async function admin(a,b,c){
+  if(need())return;
+  if(!user){location.hash='#/login';return}
+  if(!isAdmin){setMeta('');app.innerHTML=`<section class="wrap sec"><p>${t('ad.forbid')}</p></section>`;return}
+  setMeta(t('nav.admin'),'');
+  const tab=['games','news','messages'].includes(a)?a:'games';
+  app.innerHTML=`<section class="wrap sec adm"><nav class="side" aria-label="Admin">${[['games','ad.games'],['news','ad.news'],['messages','ad.msgs']].map(([k,l])=>`<a href="#/admin/${k}" ${tab===k?'aria-current="page"':''}>${t(l)}</a>`).join('')}</nav><div id="ac"></div></section>`;
+  if(tab==='messages')await adMsgs();else if(b==='new'||b==='edit')await adForm(tab,c);else await adList(tab);
+}
+const bind=(tab,reload)=>{$('#ac').onclick=async e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset;
+  try{
+    if(d.rm){if(!confirm(t('ad.confirm')))return;await q(sb.from(tab).delete().eq('id',d.rm));toast(t('ad.deleted'))}
+    else if(d.tg){const s=d.s==='published'?'draft':'published',u={status:s};if(tab==='news'&&s==='published')u.published_at=new Date().toISOString();await q(sb.from(tab).update(u).eq('id',d.tg));toast(t('ad.saved'))}
+    else if(d.rd){await q(sb.from(tab).update({read:true}).eq('id',d.rd))}
+    else return;
+    reload();
+  }catch(er){toast(er.message,1)}}};
+async function adList(tab){
+  const r=await q(sb.from(tab).select('id,slug,title_pt,status,updated_at').order('updated_at',{ascending:false}));
+  $('#ac').innerHTML=`<div class="row"><h1>${t('ad.'+tab)}</h1><a class="btn sm" href="#/admin/${tab}/new">${t('ad.new')}</a></div>`+(r.length?r.map(x=>`<div class="item"><div><b>${esc(x.title_pt)}</b><br><span class="muted">/${esc(x.slug)} · ${t('st.'+x.status)} · ${fmt(x.updated_at)}</span></div><div class="acts"><a class="btn sm ghost" href="#/admin/${tab}/edit/${x.id}">${t('ad.edit')}</a><button class="btn sm ghost" data-tg="${x.id}" data-s="${x.status}">${x.status==='published'?t('ad.unpub'):t('ad.pub')}</button><button class="btn sm danger" data-rm="${x.id}">${t('ad.del')}</button></div></div>`).join(''):empty());
+  bind(tab,()=>adList(tab));
+}
+async function adMsgs(){
+  const r=await q(sb.from('messages').select('*').order('created_at',{ascending:false}));
+  $('#ac').innerHTML=`<h1>${t('ad.msgs')}</h1>`+(r.length?r.map(m=>`<div class="item col ${m.read?'':'unread'}"><div><b>${esc(m.name)}</b> &lt;${esc(m.email)}&gt; <span class="muted">${fmt(m.created_at)}</span><br>${m.subject?`<b>${esc(m.subject)}</b><br>`:''}<span class="pre">${esc(m.message)}</span></div><div class="acts">${m.read?'':`<button class="btn sm ghost" data-rd="${m.id}">${t('ad.mark')}</button>`}<button class="btn sm danger" data-rm="${m.id}">${t('ad.del')}</button></div></div>`).join(''):empty());
+  bind('messages',adMsgs);
+}
+async function adForm(tab,id){
+  const S=SPEC[tab];let cur={};
+  if(id)cur=await q(sb.from(tab).select('*').eq('id',id).single());
+  const field=([n,ty,o,pf])=>{const v=cur[n],l=`<label for="f_${n}">${lab(n)}</label>`,up=`<input class="fu" type="file" accept="image/jpeg,image/png,image/webp,image/avif" data-t="${n}" ${ty==='imgs'?'multiple':''} aria-label="${t('ad.upload')}">`;
+    if(ty==='area')return `<div class="fld">${l}<textarea id="f_${n}" rows="${/^(body|desc)/.test(n)?9:3}">${esc(v)}</textarea></div>`;
+    if(ty==='chk')return `<div class="fld chk"><input type="checkbox" id="f_${n}" ${v?'checked':''}>${l}</div>`;
+    if(ty==='sel')return `<div class="fld">${l}<select id="f_${n}">${o.map(x=>`<option value="${x}" ${v===x?'selected':''}>${t(pf+x)}</option>`).join('')}</select></div>`;
+    if(ty==='imgs')return `<div class="fld">${l}<textarea id="f_${n}" rows="4">${esc((v||[]).join('\n'))}</textarea>${up}</div>`;
+    if(ty==='links')return `<div class="fld">${l}<textarea id="f_${n}" rows="3">${esc((v||[]).map(x=>x.label+'|'+x.url).join('\n'))}</textarea></div>`;
+    if(ty==='list')return `<div class="fld">${l}<input id="f_${n}" value="${esc((v||[]).join(', '))}"></div>`;
+    if(ty==='img')return `<div class="fld">${l}<input id="f_${n}" type="url" placeholder="https://" value="${esc(v||'')}">${up}</div>`;
+    return `<div class="fld">${l}<input id="f_${n}" type="${ty==='date'?'date':'text'}" value="${esc(v||'')}"></div>`};
+  $('#ac').innerHTML=`<div class="row"><h1>${t('ad.'+tab)}</h1><a class="lnk" href="#/admin/${tab}">${t('back')}</a></div><form id="af" class="frm">${S.f.map(field).join('')}<div class="acts"><button type="button" class="btn ghost" data-st="draft">${t('ad.draft')}</button><button type="button" class="btn" data-st="published">${t('ad.pub')}</button><button type="button" class="btn ghost" id="pv">${t('ad.prev')}</button></div></form>`;
+  const collect=st=>{const o={status:st};
+    for(const [n,ty] of S.f){const e=$('#f_'+n);let v=ty==='chk'?e.checked:e.value.trim();
+      if(ty==='list')v=v.split(',').map(s=>s.trim()).filter(Boolean);
+      else if(ty==='imgs')v=v.split('\n').map(s=>s.trim()).filter(x=>/^https:\/\//.test(x));
+      else if(ty==='links')v=v.split('\n').map(l=>{const [a,...r]=l.split('|');return{label:a.trim(),url:r.join('|').trim()}}).filter(x=>x.label&&/^https:\/\//.test(x.url));
+      else if(ty==='date'||ty==='img'||n==='video_url')v=v||null;
+      o[n]=v}
+    if(tab==='news')o.published_at=st==='published'?(cur.published_at||new Date().toISOString()):(cur.published_at||null);
+    return o};
+  const form=$('#af');
+  form.addEventListener('change',async e=>{const i=e.target;if(i.type!=='file'||!i.files.length)return;
+    try{for(const f of i.files){
+      if(!/^image\/(jpeg|png|webp|avif)$/.test(f.type)||f.size>5242880)throw new Error(t('ad.badimg'));
+      const p=`${tab}/${crypto.randomUUID()}.${f.type.split('/')[1].replace('jpeg','jpg')}`;
+      await q(sb.storage.from('media').upload(p,f,{contentType:f.type}));
+      const u=sb.storage.from('media').getPublicUrl(p).data.publicUrl,tg=$('#f_'+i.dataset.t);
+      tg.value=i.multiple&&tg.value?tg.value+'\n'+u:u}
+      toast(t('ad.saved'))}catch(er){toast(er.message,1)}i.value=''});
+  form.addEventListener('click',async e=>{const b=e.target.closest('button');if(!b)return;
+    if(b.id==='pv'){$('#dlgc').innerHTML=S.view(collect(cur.status||'draft'));$('#dx').textContent=t('ad.close');$('#dlg').showModal();return}
+    if(!b.dataset.st)return;
+    const o=collect(b.dataset.st);
+    if(!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(o.slug)||!o.title_pt||!o.title_en)return toast(t('ad.invalid'),1);
+    try{await q(id?sb.from(tab).update(o).eq('id',id):sb.from(tab).insert(o));toast(t('ad.saved'));location.hash='#/admin/'+tab}catch(er){toast(er.message,1)}});
+}
+
+/* ---------- Cabeçalho, rodapé, roteador e sessão ---------- */
+let user=null,isAdmin=false,uid=null;
+function renderHd(r){
+  const nav=[['','home'],['games','games'],['news','news'],['community','community'],['contact','contact']].map(([k,n])=>`<a href="#/${k}" ${(r||'')===k?'aria-current="page"':''}>${t('nav.'+n)}</a>`).join('');
+  $('#hd').innerHTML=`<header class="top"><div class="wrap bar"><a class="brand" href="#/"><span class="mk" aria-hidden="true">◆</span> BLACK FORGE</a><button class="burger" id="bg" aria-expanded="false" aria-controls="mn" aria-label="${t('nav.menu')}"><i></i><i></i><i></i></button><nav id="mn" class="menu">${nav}${isAdmin?`<a href="#/admin" ${r==='admin'?'aria-current="page"':''}>${t('nav.admin')}</a>`:''}${sb?(user?`<button class="btn sm" id="lo">${t('nav.logout')}</button>`:`<a class="btn sm" href="#/login">${t('nav.login')}</a>`):''}<button class="lang" id="lg" aria-label="${t('lang')}">${L==='pt'?'EN':'PT'}</button></nav></div></header>`;
+  $('#bg').onclick=()=>{const o=$('#mn').classList.toggle('open');$('#bg').setAttribute('aria-expanded',o)};
+  $('#mn').addEventListener('click',e=>{if(e.target.closest('a'))$('#mn').classList.remove('open')});
+  $('#lg').onclick=()=>{L=L==='pt'?'en':'pt';try{localStorage.setItem('bf_lang',L)}catch(e){}
+    document.documentElement.lang=L==='pt'?'pt-BR':'en';renderFt();
+    if(/\/(edit|new)/.test(location.hash))renderHd(location.hash.split('/')[1]);else route()};
+  if($('#lo'))$('#lo').onclick=()=>sb.auth.signOut();
+}
+function renderFt(){$('#sk').textContent=t('skip');$('#ft').innerHTML=`<footer class="foot"><div class="wrap"><span>© ${new Date().getFullYear()} Black Forge. ${t('ft')}</span><a href="#/privacy">${t('pv.title')}</a></div></footer>`}
+async function route(){
+  const h=location.hash.replace(/^#\/?/,''),p=h.split('/').map(x=>{try{return decodeURIComponent(x)}catch(e){return x}});
+  const [r,a,b,c]=p;renderHd(r);
+  try{
+    if(!r||/^(access_token|error)/.test(r))await home();
+    else if(r==='games')a?await detail('games',a):await gamesPage();
+    else if(r==='news')a?await detail('news',a):await newsPage();
+    else if(r==='community')comm();
+    else if(r==='contact')contact();
+    else if(r==='login')login();
+    else if(r==='reset')reset();
+    else if(r==='admin')await admin(a,b,c);
+    else if(r==='privacy')privacy();
+    else nf();
+  }catch(e){console.error(e);app.innerHTML=`<section class="wrap sec"><p class="muted">${t('err')}</p></section>`}
+  window.scrollTo(0,0);
+}
+$('#dx').onclick=()=>$('#dlg').close();
+document.documentElement.lang=L==='pt'?'pt-BR':'en';renderFt();
+window.addEventListener('hashchange',route);
+if(sb){
+  sb.auth.onAuthStateChange((ev,s)=>setTimeout(async()=>{
+    const u=s?.user||null,changed=(u?.id||null)!==uid;uid=u?.id||null;user=u;
+    if(changed||ev==='INITIAL_SESSION'){isAdmin=false;
+      if(u){try{isAdmin=!!(await sb.from('admins').select('user_id').eq('user_id',u.id).maybeSingle()).data}catch(e){}}}
+    if(ev==='PASSWORD_RECOVERY'){location.hash='#/reset';return}
+    if(changed||ev==='INITIAL_SESSION')route();
+  },0));
+}else route();
+</script>
+</body>
+</html>
