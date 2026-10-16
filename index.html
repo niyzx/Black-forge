@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Black Forge — Estúdio de Jogos</title>
-<meta name="description" content="Black Forge, estúdio independente de jogos forjados com paixão.">
+<title>Black Forge — Jogos, sites e aplicativos</title>
+<meta name="description" content="Black Forge desenvolve jogos, sites e aplicativos sob medida, do conceito à entrega.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Black Forge">
-<meta property="og:title" content="Black Forge — Estúdio de Jogos">
-<meta property="og:description" content="Black Forge, estúdio independente de jogos forjados com paixão.">
+<meta property="og:title" content="Black Forge — Jogos, sites e aplicativos">
+<meta property="og:description" content="Black Forge desenvolve jogos, sites e aplicativos sob medida, do conceito à entrega.">
 <meta name="theme-color" content="#0d0c0b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,6 +99,14 @@ dialog{width:min(900px,94vw);max-height:90vh;overflow:auto;background:var(--blac
 .adm{grid-template-columns:1fr}.side{flex-direction:row;flex-wrap:wrap}.sec{padding:2rem 0}.narrow .frm{padding:1.2rem}}
 @keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.hv{position:absolute;right:6%;top:50%;width:min(300px,30vw);transform:translateY(-50%);color:var(--ember);opacity:.22}
+.sv ul{margin:.8rem 0 .4rem;padding-left:1.2rem}.sv li{margin:.25rem 0}.sv .bd p{display:block;-webkit-line-clamp:unset}
+.steps{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;padding:0;margin:0}.steps li{counter-increment:s;background:var(--steel);border:1px solid var(--line);border-radius:4px;padding:1rem;font-weight:600}.steps li::before{content:"0" counter(s);font:800 2rem/1 var(--head);color:var(--hot);display:block;margin-bottom:.4rem}
+.emp{grid-column:1/-1;text-align:center;border:1px dashed #5a4a3e;border-radius:4px;padding:2.2rem 1rem;color:var(--muted)}
+.fil{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}.fbtn{cursor:pointer;background:none;font:inherit;min-height:40px;color:var(--muted);margin:0}.fbtn[aria-pressed=true]{background:var(--ember);color:#1c0d04;border-color:var(--ember)}
+.chips{margin-top:.7rem}.acts select{width:auto}
+.foot .fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}.foot .fg>*{display:flex;flex-direction:column;gap:.4rem}.foot b{color:var(--paper)}.foot .fc{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--line)}
+@media(max-width:760px){.hv{display:none}.foot .fg{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -122,7 +130,7 @@ const GS=['concept','in_development','early_access','released'],CT=['news','upda
 const D={
 'skip':['Pular para o conteúdo','Skip to content'],
 'nav.home':['Início','Home'],'nav.games':['Jogos','Games'],'nav.news':['Notícias','News'],'nav.community':['Comunidade','Community'],'nav.contact':['Contato','Contact'],'nav.login':['Entrar','Sign in'],'nav.logout':['Sair','Sign out'],'nav.admin':['Painel','Admin'],'nav.menu':['Abrir menu','Open menu'],'lang':['Mudar idioma','Change language'],
-'meta':['Black Forge, estúdio independente de jogos forjados com paixão.','Black Forge, an independent studio crafting games with passion.'],
+'meta':['Black Forge desenvolve jogos, sites e aplicativos sob medida, do conceito à entrega.','Black Forge, an independent studio crafting games with passion.'],
 'hero.eyebrow':['Estúdio independente','Independent studio'],'hero.title':['Forjando jogos','Forging games'],
 'hero.sub':['Criamos experiências autorais com aço, brasa e muita dedicação.','We craft original experiences with steel, embers and a lot of dedication.'],
 'hero.cta1':['Ver jogos','View games'],'hero.cta2':['Entrar na comunidade','Join the community'],
@@ -145,6 +153,30 @@ const D={
 'pv.body':['Coletamos apenas o e-mail e a senha (armazenada de forma criptografada) de quem cria conta e as mensagens enviadas pelo formulário de contato. Guardamos no seu navegador apenas a preferência de idioma e a sessão de login. Não vendemos dados. Para pedir a exclusão dos seus dados, fale conosco pela página de contato.','We only collect the email and password (stored encrypted) of people who create an account and the messages sent through the contact form. Your browser stores only your language preference and login session. We do not sell data. To request deletion of your data, reach us through the contact page.'],
 'nf.title':['Página não encontrada','Page not found'],'nf.text':['O conteúdo que você procura não existe ou foi removido.','The content you are looking for does not exist or was removed.'],'nf.home':['Voltar ao início','Back to home'],
 'ft':['Todos os direitos reservados.','All rights reserved.']};
+Object.assign(D,{
+'meta':['Black Forge desenvolve jogos, sites e aplicativos sob medida, do conceito à entrega.','Black Forge builds custom games, websites and apps, from concept to delivery.'],
+'hero.title':['Forjamos soluções digitais','We forge digital solutions'],
+'hero.sub':['Desenvolvemos jogos, sites e aplicativos sob medida, do conceito à entrega.','We build custom games, websites and apps, from concept to delivery.'],
+'nav.services':['Serviços','Services'],'nav.portfolio':['Portfólio','Portfolio'],'nav.quote':['Solicitar projeto','Request a project'],
+'h.req':['Solicitar um projeto','Request a project'],'h.port':['Explorar portfólio','Explore portfolio'],'h.proj':['Projetos em destaque','Featured projects'],'h.how':['Como trabalhamos','How we work'],
+'pr.1':['Entendimento da necessidade','Understanding your needs'],'pr.2':['Planejamento e definição do escopo','Planning and scope definition'],'pr.3':['Desenvolvimento','Development'],'pr.4':['Testes e entrega','Testing and delivery'],'pr.5':['Manutenção e evolução, quando contratadas','Maintenance and evolution, when contracted'],
+'cta.t':['Tem uma ideia?','Have an idea?'],'cta.p':['Conte o que você precisa e receba uma análise da nossa equipe.','Tell us what you need and get an assessment from our team.'],
+'sv.meta':['Desenvolvimento de jogos, sites, plataformas web, aplicativos e sistemas.','Development of games, websites, web platforms, apps and systems.'],
+'sv.lead':['Escolha uma área e solicite um orçamento. Escopo, prazo e valores são definidos junto com você.','Pick an area and request a quote. Scope, timeline and pricing are defined together with you.'],
+'sv.more':['Conhecer os serviços','See services'],'sv.deliv':['O que podemos entregar','What we can deliver'],
+'sv.game':['Desenvolvimento de jogos','Game development'],'sv.game.d':['Do protótipo ao jogo publicado: mecânicas, interfaces e atualizações.','From prototype to published game: mechanics, interfaces and updates.'],'sv.game.l':['Jogos 2D e 3D|Prototipagem|Sistemas de gameplay|Interfaces e menus|Atualizações e manutenção','2D and 3D games|Prototyping|Gameplay systems|Interfaces and menus|Updates and maintenance'],
+'sv.site':['Sites e plataformas web','Websites and web platforms'],'sv.site.d':['Presença digital e plataformas com painel administrativo e banco de dados.','Digital presence and platforms with admin panels and databases.'],'sv.site.l':['Sites institucionais|Landing pages|Portfólios|Plataformas web|Dashboards e sistemas administrativos|Integrações com APIs e bancos de dados','Corporate websites|Landing pages|Portfolios|Web platforms|Dashboards and admin systems|API and database integrations'],
+'sv.app':['Aplicativos e sistemas','Apps and systems'],'sv.app.d':['Aplicativos e sistemas sob medida, com contas de usuário e integrações.','Custom apps and systems, with user accounts and integrations.'],'sv.app.l':['Aplicativos web e mobile|Sistemas personalizados|Autenticação e gerenciamento de usuários|Integrações e automações','Web and mobile apps|Custom systems|Authentication and user management|Integrations and automations'],
+'pc.game':['Jogo','Game'],'pc.site':['Site','Website'],'pc.app':['Aplicativo','App'],'pc.system':['Sistema','System'],
+'pf.game':['Jogos','Games'],'pf.site':['Sites','Websites'],'pf.app':['Aplicativos','Apps'],'pf.system':['Sistemas','Systems'],
+'pf.empty':['Os primeiros projetos serão publicados em breve. Que tal ser um deles?','Our first projects will be published soon. Want yours to be one of them?'],'pf.meta':['Jogos, sites, aplicativos e sistemas desenvolvidos pela Black Forge.','Games, websites, apps and systems built by Black Forge.'],
+'q.title':['Solicitar um projeto','Request a project'],'q.meta':['Conte sua ideia e solicite um orçamento à Black Forge.','Tell us your idea and request a quote from Black Forge.'],'q.lead':['Preencha o formulário e responderemos pelo contato escolhido.','Fill in the form and we will reply through your preferred contact.'],
+'q.company':['Empresa (opcional)','Company (optional)'],'q.service':['Serviço desejado','Service needed'],'q.choose':['Selecione…','Select…'],'q.other':['Outro','Other'],'q.idea':['Descrição da ideia (mín. 20 caracteres)','Describe your idea (min. 20 characters)'],'q.feat':['Funcionalidades desejadas (opcional)','Desired features (optional)'],'q.deadline':['Prazo pretendido (opcional)','Desired timeline (optional)'],'q.budget':['Faixa de orçamento (opcional)','Budget range (optional)'],'q.pref':['Contato preferido','Preferred contact'],'q.pe':['E-mail','Email'],'q.pm':['Reunião online','Online meeting'],
+'q.send':['Enviar solicitação','Send request'],'q.ok':['Solicitação enviada! Entraremos em contato.','Request sent! We will get in touch.'],'q.fail':['Não foi possível enviar sua solicitação. Nada foi enviado; tente novamente em instantes.','We could not send your request. Nothing was sent; please try again shortly.'],'q.wait':['Aguarde um minuto antes de enviar outra solicitação.','Please wait a minute before sending another request.'],'q.invalid':['Verifique o campo:','Please check the field:'],
+'qs.new':['Nova','New'],'qs.review':['Em análise','In review'],'qs.negotiation':['Em negociação','In negotiation'],'qs.approved':['Aprovada','Approved'],'qs.declined':['Recusada','Declined'],'qs.done':['Concluída','Completed'],
+'ft.sum':['Estúdio que desenvolve jogos, sites e aplicativos sob medida.','A studio building custom games, websites and apps.'],'ft.nav':['Navegação','Navigation'],
+'ad.projects':['Projetos','Projects'],'ad.quotes':['Orçamentos','Quotes'],'ad.newp':['Novo projeto','New project'],'ad.notes':['Observações internas','Internal notes'],'ad.pend':['Pendentes','Pending'],'ad.total':['Recebidas','Received'],'ad.save':['Salvar','Save'],
+'pv.body':['Coletamos apenas o e-mail e a senha (armazenada de forma criptografada) de quem cria conta, as mensagens do formulário de contato e os dados informados nas solicitações de orçamento (nome, e-mail, empresa e detalhes do projeto). Guardamos no seu navegador apenas a preferência de idioma, a sessão de login e o horário do último envio de orçamento. Não vendemos dados. Para pedir a exclusão dos seus dados, fale conosco pela página de contato.','We only collect the email and password (stored encrypted) of people who create an account, contact form messages and the data provided in quote requests (name, email, company and project details). Your browser stores only your language preference, login session and the time of your last quote request. We do not sell data. To request deletion of your data, reach us through the contact page.']});
 let L='pt';try{L=localStorage.getItem('bf_lang')||(/^pt/i.test(navigator.language)?'pt':'en')}catch(e){L=/^pt/i.test(navigator.language)?'pt':'en'}
 if(L!=='pt'&&L!=='en')L='pt';
 const t=k=>(D[k]||[k,k])[L==='pt'?0:1];
@@ -152,6 +184,7 @@ const pick=(o,f)=>o[f+'_'+L]||o[f+'_pt']||'';
 const B={title:['Título','Title'],summary:['Resumo','Summary'],description:['Descrição','Description'],body:['Texto','Body'],excerpt:['Resumo curto','Excerpt']};
 const F={slug:['Slug (URL)','Slug (URL)'],game_status:['Situação','Stage'],featured:['Destaque na página inicial','Featured on home'],category:['Categoria','Category'],genres:['Gêneros (separe por vírgula)','Genres (comma-separated)'],platforms:['Plataformas (separe por vírgula)','Platforms (comma-separated)'],release_date:['Data de lançamento','Release date'],cover_url:['Capa','Cover'],banner_url:['Banner','Banner'],screenshots:['Capturas (uma URL por linha)','Screenshots (one URL per line)'],video_url:['Vídeo (link do YouTube)','Video (YouTube link)'],links:['Links (Rótulo|https://url — um por linha)','Links (Label|https://url — one per line)'],image_url:['Imagem','Image'],downloads:['Downloads (Rótulo|https://link — um por linha) ou envie um arquivo','Downloads (Label|https://link — one per line) or upload a file']};
 const lab=n=>{const m=n.match(/^(\w+)_(pt|en)$/),i=L==='pt'?0:1;return m&&B[m[1]]?B[m[1]][i]+' ('+m[2].toUpperCase()+')':(F[n]||[n,n])[i]};
+Object.assign(F,{tech:['Tecnologias (separe por vírgula)','Technologies (comma-separated)'],project_status:['Situação do projeto','Project stage']});
 const paras=s=>String(s||'').split(/\n{2,}/).filter(Boolean).map(p=>`<p>${esc(p)}</p>`).join('');
 const fmt=d=>d?new Date(d).toLocaleDateString(L==='pt'?'pt-BR':'en-US'):'';
 const toast=(m,bad)=>{const e=$('#toast');e.textContent=m;e.className='show'+(bad?' bad':'');clearTimeout(toast.t);toast.t=setTimeout(()=>e.className='',4500)};
@@ -169,15 +202,13 @@ const empty=()=>`<p class="muted">${t('empty')}</p>`;
 /* ---------- Páginas públicas ---------- */
 async function home(){
   setMeta('');
-  app.innerHTML=`<section class="hero"><div class="emb" aria-hidden="true"></div><div class="wrap"><p class="eyebrow">${t('hero.eyebrow')}</p><h1>${t('hero.title')}</h1><p class="lead">${t('hero.sub')}</p><div class="acts"><a class="btn" href="#/games">${t('hero.cta1')}</a><a class="btn ghost" href="#/community">${t('hero.cta2')}</a></div></div></section><section class="wrap sec"><h2>${t('home.featured')}</h2><div id="hf" class="grid"></div></section><section class="wrap sec"><h2>${t('home.latest')}</h2><div id="hn" class="grid"></div></section><section class="wrap cta"><h2>${t('comm.title')}</h2><p>${t('comm.text')}</p><a class="btn" href="#/community">${t('hero.cta2')}</a></section>`;
-  if(!sb){$('#hf').innerHTML=$('#hn').innerHTML=`<p class="muted">${t('noconf')}</p>`;return}
-  try{
-    const [g,n]=await Promise.all([
-      q(sb.from('games').select('*').eq('status','published').eq('featured',true).order('created_at',{ascending:false}).limit(3)),
-      q(sb.from('news').select('*').eq('status','published').order('published_at',{ascending:false}).limit(3))]);
-    $('#hf').innerHTML=g.length?g.map(gameCard).join(''):empty();
-    $('#hn').innerHTML=n.length?n.map(newsCard).join(''):empty();
-  }catch(e){$('#hf').innerHTML=$('#hn').innerHTML=`<p class="muted">${t('err')}</p>`}
+  app.innerHTML=`<section class="hero"><div class="emb" aria-hidden="true"></div><svg class="hv" viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M40 30 10 60l30 30M80 30l30 30-30 30M70 20 50 100"/></svg><div class="wrap"><p class="eyebrow">${t('hero.eyebrow')}</p><h1>${t('hero.title')}</h1><p class="lead">${t('hero.sub')}</p><div class="acts"><a class="btn" href="#/quote">${t('h.req')}</a><a class="btn ghost" href="#/portfolio">${t('h.port')}</a></div></div></section><section class="wrap sec"><h2>${t('nav.services')}</h2><div class="grid">${SV.map(k=>svCard(k)).join('')}</div></section><section class="wrap sec"><h2>${t('h.proj')}</h2><div id="hp" class="grid"></div></section><section class="wrap sec"><h2>${t('h.how')}</h2><ol class="steps">${[1,2,3,4,5].map(i=>`<li>${t('pr.'+i)}</li>`).join('')}</ol></section><section class="wrap sec"><h2>${t('home.featured')}</h2><div id="hf" class="grid"></div></section><section class="wrap sec"><h2>${t('home.latest')}</h2><div id="hn" class="grid"></div></section><section class="wrap cta"><h2>${t('cta.t')}</h2><p>${t('cta.p')}</p><a class="btn" href="#/quote">${t('h.req')}</a></section>`;
+  if(!sb){$('#hp').innerHTML=$('#hf').innerHTML=$('#hn').innerHTML=`<p class="muted">${t('noconf')}</p>`;return}
+  const run=async(id,p,fn,em)=>{try{const r=await q(p);$(id).innerHTML=r.length?r.map(fn).join(''):em}catch(e){$(id).innerHTML=`<p class="muted">${t('err')}</p>`}};
+  await Promise.all([
+    run('#hp',sb.from('projects').select('*').eq('status','published').eq('featured',true).order('created_at',{ascending:false}).limit(3),projCard,emptyBox(t('pf.empty'))),
+    run('#hf',sb.from('games').select('*').eq('status','published').eq('featured',true).order('created_at',{ascending:false}).limit(3),gameCard,empty()),
+    run('#hn',sb.from('news').select('*').eq('status','published').order('published_at',{ascending:false}).limit(3),newsCard,empty())]);
 }
 async function gamesPage(){
   if(need())return;setMeta(t('gtitle'),'');
@@ -195,12 +226,53 @@ async function newsPage(){
   const d=await q(sb.from('news').select('*').eq('status','published').order('published_at',{ascending:false}));
   app.innerHTML=`<section class="wrap sec"><h1>${t('ntitle')}</h1><div class="grid">${d.length?d.map(newsCard).join(''):empty()}</div></section>`;
 }
+const PC=['game','site','app','system'],SV=['game','site','app'],QV={};
+const emptyBox=m=>`<div class="emp"><p>${m}</p><a class="btn sm" href="#/quote">${t('h.req')}</a></div>`;
+const svCard=(k,full)=>`<div class="card sv"><div class="bd"><span class="tag">0${SV.indexOf(k)+1}</span><h3>${t('sv.'+k)}</h3><p>${t('sv.'+k+'.d')}</p>${full?`<p class="muted">${t('sv.deliv')}:</p><ul>${t('sv.'+k+'.l').split('|').map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}<a class="lnk" href="${full?'#/quote/'+k:'#/services'}">${full?t('h.req'):t('sv.more')}</a></div></div>`;
+const projCard=p=>card('#/portfolio/'+encodeURIComponent(p.slug),p.cover_url,t('pc.'+p.category)+' · '+t('st.'+p.project_status),pick(p,'title'),pick(p,'summary')).replace(/<\/div><\/a>$/,((p.tech||[]).length?`<div class="chips">${p.tech.slice(0,5).map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div>`:'')+'</div></a>');
+const projView=p=>`<article class="wrap sec det">${url(p.cover_url)?`<img class="ban" src="${url(p.cover_url)}" alt="">`:''}<span class="tag">${t('pc.'+p.category)} · ${t('st.'+p.project_status)}</span><h1>${esc(pick(p,'title'))}</h1><p>${(p.tech||[]).map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</p>${paras(pick(p,'description')||pick(p,'summary'))}${vid(p.video_url)}${(p.screenshots||[]).filter(url).length?`<h2>${t('shots')}</h2><div class="shots">${p.screenshots.filter(url).map(s=>`<img src="${url(s)}" alt="" loading="lazy">`).join('')}</div>`:''}${(p.links||[]).filter(l=>url(l.url)).length?`<h2>${t('links')}</h2><div class="acts">${p.links.filter(l=>url(l.url)).map(l=>`<a class="btn ghost" href="${url(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)}</a>`).join('')}</div>`:''}<div class="acts"><a class="btn" href="#/quote/${esc(p.category)}">${t('h.req')}</a></div></article>`;
 async function detail(tab,slug){
   if(need())return;
   const d=await q(sb.from(tab).select('*').eq('slug',slug).eq('status','published').maybeSingle());
   if(!d)return nf();
-  setMeta(pick(d,'title'),pick(d,tab==='games'?'summary':'excerpt'));
-  app.innerHTML=`<div class="wrap"><a class="lnk" href="#/${tab}">${t('back')}</a></div>`+(tab==='games'?gameView(d):newsView(d));
+  const P=tab==='projects';
+  setMeta(pick(d,'title'),pick(d,tab==='news'?'excerpt':'summary'));
+  app.innerHTML=`<div class="wrap"><a class="lnk" href="#/${P?'portfolio':tab}">${t('back')}</a></div>`+(P?projView:tab==='games'?gameView:newsView)(d);
+}
+function services(){
+  setMeta(t('nav.services'),t('sv.meta'));
+  app.innerHTML=`<section class="wrap sec"><h1>${t('nav.services')}</h1><p class="lead">${t('sv.lead')}</p><div class="grid">${SV.map(k=>svCard(k,1)).join('')}</div></section>`;
+}
+async function portfolio(){
+  if(need())return;setMeta(t('nav.portfolio'),t('pf.meta'));
+  let d;try{d=await q(sb.from('projects').select('*').eq('status','published').order('created_at',{ascending:false}))}catch(e){app.innerHTML=`<section class="wrap sec"><p class="muted">${t('err')}</p></section>`;return}
+  portfolio.f=portfolio.f||'';
+  app.innerHTML=`<section class="wrap sec"><h1>${t('nav.portfolio')}</h1><div class="fil" role="group" aria-label="${t('nav.portfolio')}">${['',...PC].map(k=>`<button type="button" class="chip fbtn" data-c="${k}">${k?t('pf.'+k):t('any')}</button>`).join('')}</div><div id="pl" class="grid" aria-live="polite"></div></section>`;
+  const draw=()=>{const r=d.filter(p=>!portfolio.f||p.category===portfolio.f);
+    $('#pl').innerHTML=r.length?r.map(projCard).join(''):(d.length?`<p class="muted">${t('none')}</p>`:emptyBox(t('pf.empty')));
+    document.querySelectorAll('.fbtn').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===portfolio.f))};
+  $('.fil').onclick=e=>{const b=e.target.closest('button');if(b){portfolio.f=b.dataset.c;draw()}};draw();
+}
+function quote(s){
+  if(need())return;setMeta(t('q.title'),t('q.meta'));
+  if(s&&!QV.service&&[...PC,'other'].includes(s))QV.service=s;
+  const f=(n,l,ty,x)=>`<div class="fld"><label for="q_${n}">${t(l)}</label>${ty==='area'?`<textarea id="q_${n}" name="${n}" rows="5" maxlength="4000">${esc(QV[n])}</textarea>`:`<input id="q_${n}" name="${n}" type="${ty}" maxlength="200" value="${esc(QV[n])}" ${x||''}>`}</div>`;
+  const sel=(n,l,o)=>`<div class="fld"><label for="q_${n}">${t(l)}</label><select id="q_${n}" name="${n}">${o.map(([v,tx])=>`<option value="${v}" ${(QV[n]||o[0][0])===v?'selected':''}>${t(tx)}</option>`).join('')}</select></div>`;
+  app.innerHTML=`<section class="wrap sec narrow"><h1>${t('q.title')}</h1><p class="lead">${t('q.lead')}</p><form id="qf" class="frm" novalidate>${f('name','ct.name','text','autocomplete="name"')}${f('email','ct.email','email','autocomplete="email"')}${f('company','q.company','text')}${sel('service','q.service',[['','q.choose'],...PC.map(k=>[k,'pc.'+k]),['other','q.other']])}${f('idea','q.idea','area')}${f('features','q.feat','area')}${f('deadline','q.deadline','text')}${f('budget','q.budget','text')}${sel('contact_pref','q.pref',[['email','q.pe'],['meeting','q.pm']])}<input id="q_web" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="qe" class="muted" role="alert"></p><button class="btn" id="qb">${t('q.send')}</button></form></section>`;
+  const F=$('#qf'),er=$('#qe'),v=n=>$('#q_'+n).value.trim();
+  F.addEventListener('input',e=>{if(e.target.name)QV[e.target.name]=e.target.value});
+  F.onsubmit=async e=>{e.preventDefault();if($('#q_web').value)return;er.textContent='';
+    const bad=[['name',v('name').length>=2,'ct.name'],['email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email')),'ct.email'],['service',!!v('service'),'q.service'],['idea',v('idea').length>=20,'q.idea']].find(x=>!x[1]);
+    if(bad){er.textContent=t('q.invalid')+' '+t(bad[2]);$('#q_'+bad[0]).focus();return}
+    let last=0;try{last=+localStorage.getItem('bf_q')||0}catch(_){}
+    if(Date.now()-last<60000){er.textContent=t('q.wait');return}
+    const b=$('#qb');b.disabled=true;
+    try{
+      await q(sb.from('quotes').insert({name:v('name'),email:v('email'),company:v('company')||null,service:v('service'),idea:v('idea'),features:v('features')||null,deadline:v('deadline')||null,budget:v('budget')||null,contact_pref:v('contact_pref')}));
+      try{localStorage.setItem('bf_q',Date.now())}catch(_){}
+      Object.keys(QV).forEach(k=>delete QV[k]);
+      if(F.isConnected)app.innerHTML=`<section class="wrap sec narrow"><h1>${t('q.title')}</h1><p class="lead" role="status">${t('q.ok')}</p><a class="btn" href="#/">${t('nf.home')}</a></section>`;else toast(t('q.ok'));
+    }catch(x){if(F.isConnected){er.textContent=t('q.fail');b.disabled=false}else toast(t('q.fail'),1)}};
 }
 async function comm(){
   setMeta(t('comm.title'),t('comm.text'));
@@ -238,7 +310,8 @@ function reset(){
 /* ---------- Painel administrativo (a segurança real é o RLS do Supabase) ---------- */
 const SPEC={
   games:{f:[['slug','text'],['game_status','sel',GS,'st.'],['featured','chk'],['title_pt','text'],['title_en','text'],['summary_pt','area'],['summary_en','area'],['description_pt','area'],['description_en','area'],['genres','list'],['platforms','list'],['release_date','date'],['cover_url','img'],['banner_url','img'],['screenshots','imgs'],['video_url','text'],['links','links'],['downloads','dl']],view:gameView},
-  news:{f:[['slug','text'],['category','sel',CT,'cat.'],['title_pt','text'],['title_en','text'],['excerpt_pt','area'],['excerpt_en','area'],['body_pt','area'],['body_en','area'],['image_url','img']],view:newsView}};
+  news:{f:[['slug','text'],['category','sel',CT,'cat.'],['title_pt','text'],['title_en','text'],['excerpt_pt','area'],['excerpt_en','area'],['body_pt','area'],['body_en','area'],['image_url','img']],view:newsView},
+  projects:{f:[['slug','text'],['category','sel',PC,'pc.'],['project_status','sel',GS,'st.'],['featured','chk'],['title_pt','text'],['title_en','text'],['summary_pt','area'],['summary_en','area'],['description_pt','area'],['description_en','area'],['tech','list'],['cover_url','img'],['screenshots','imgs'],['video_url','text'],['links','links']],view:projView}};
 Object.assign(D,{
 'ad.settings':['Configurações','Settings'],'ad.commlinks':['Links da comunidade (Rótulo|https://url — um por linha)','Community links (Label|https://url — one per line)'],'ad.commhint':['Exemplo: Discord|https://discord.gg/seuconvite. Cada linha vira um botão na página Comunidade.','Example: Discord|https://discord.gg/yourinvite. Each line becomes a button on the Community page.'],'ad.badlinks':['Use links que começam com https:// no formato Rótulo|https://url.','Use links starting with https:// as Label|https://url.'],
 'ad.home':['Visão geral','Overview'],'ad.pubd':['Publicados','Published'],'ad.drafts':['Rascunhos','Drafts'],'ad.unr':['Não lidas','Unread'],'ad.rdd':['Lidas','Read'],
@@ -253,18 +326,19 @@ async function admin(a,b,c){
   if(!user){location.hash='#/login';return}
   if(!isAdmin){setMeta('');app.innerHTML=`<section class="wrap sec"><p>${t('ad.forbid')}</p></section>`;return}
   setMeta(t('nav.admin'),'');
-  const tab=['games','news','messages','settings'].includes(a)?a:'home';
-  let un=0;try{un=(await sb.from('messages').select('id',{count:'exact',head:true}).eq('read',false)).count||0}catch(e){}
-  app.innerHTML=`<section class="wrap sec adm"><nav class="side" aria-label="Admin">${[['home','ad.home'],['games','ad.games'],['news','ad.news'],['messages','ad.msgs'],['settings','ad.settings']].map(([k,l])=>`<a href="#/admin/${k==='home'?'':k}" ${tab===k?'aria-current="page"':''}>${t(l)}${k==='messages'&&un?`<span class="bdg" aria-label="${un} ${t('ad.unr')}">${un}</span>`:''}</a>`).join('')}</nav><div id="ac"></div></section>`;
-  if(tab==='home')await adHome();else if(tab==='messages')await adMsgs();else if(tab==='settings')await adSettings();else if(b==='new'||b==='edit')await adForm(tab,c);else await adList(tab);
+  const tab=['games','news','projects','quotes','messages','settings'].includes(a)?a:'home';
+  let un=0,qn=0;try{qn=(await sb.from('quotes').select('id',{count:'exact',head:true}).eq('read',false)).count||0}catch(e){}try{un=(await sb.from('messages').select('id',{count:'exact',head:true}).eq('read',false)).count||0}catch(e){}
+  app.innerHTML=`<section class="wrap sec adm"><nav class="side" aria-label="Admin">${[['home','ad.home'],['projects','ad.projects'],['quotes','ad.quotes'],['games','ad.games'],['news','ad.news'],['messages','ad.msgs'],['settings','ad.settings']].map(([k,l])=>`<a href="#/admin/${k==='home'?'':k}" ${tab===k?'aria-current="page"':''}>${t(l)}${(k==='messages'?un:k==='quotes'?qn:0)?`<span class="bdg" aria-label="${k==='messages'?un:qn} ${t('ad.unr')}">${k==='messages'?un:qn}</span>`:''}</a>`).join('')}</nav><div id="ac"></div></section>`;
+  if(tab==='home')await adHome();else if(tab==='messages')await adMsgs();else if(tab==='quotes')await adQuotes();else if(tab==='settings')await adSettings();else if(b==='new'||b==='edit')await adForm(tab,c);else await adList(tab);
 }
 const cnt=async p=>{const r=await p;if(r.error)throw r.error;return r.count||0};
 const hd=(tb,f)=>{const r=sb.from(tb).select('id',{count:'exact',head:true});return f?f(r):r};
 async function adHome(){
+  const [pp,qt,qp,qu]=await Promise.all([cnt(hd('projects',r=>r.eq('status','published'))),cnt(hd('quotes')),cnt(hd('quotes',r=>r.in('status',['new','review']))),cnt(hd('quotes',r=>r.eq('read',false)))]);
   const [gp,gd,np,nd,mu,rm]=await Promise.all([cnt(hd('games',r=>r.eq('status','published'))),cnt(hd('games',r=>r.eq('status','draft'))),cnt(hd('news',r=>r.eq('status','published'))),cnt(hd('news',r=>r.eq('status','draft'))),cnt(hd('messages',r=>r.eq('read',false))),q(sb.from('messages').select('id,name,subject,created_at,read').order('created_at',{ascending:false}).limit(5))]);
   const S=(h,n,l,s)=>`<a class="stat" href="${h}"><b>${n}</b><span>${l}</span><small class="muted">${s}</small></a>`;
-  $('#ac').innerHTML=`<h1>${t('ad.home')}</h1><div class="stats">${S('#/admin/games',gp,t('ad.games.t'),t('ad.pubd'))}${S('#/admin/games',gd,t('ad.games.t'),t('ad.drafts'))}${S('#/admin/news',np,t('ad.news.t'),t('ad.pubd'))}${S('#/admin/news',nd,t('ad.news.t'),t('ad.drafts'))}${S('#/admin/messages',mu,t('ad.msgs.t'),t('ad.unr'))}</div>
-  <h2 class="sub">${t('ad.quick')}</h2><div class="acts"><a class="btn sm" href="#/admin/games/new">${t('ad.newg')}</a><a class="btn sm ghost" href="#/admin/news/new">${t('ad.newn')}</a></div>
+  $('#ac').innerHTML=`<h1>${t('ad.home')}</h1><div class="stats">${S('#/admin/games',gp,t('ad.games.t'),t('ad.pubd'))}${S('#/admin/games',gd,t('ad.games.t'),t('ad.drafts'))}${S('#/admin/news',np,t('ad.news.t'),t('ad.pubd'))}${S('#/admin/news',nd,t('ad.news.t'),t('ad.drafts'))}${S('#/admin/messages',mu,t('ad.msgs.t'),t('ad.unr'))}${S('#/admin/projects',pp,t('ad.projects'),t('ad.pubd'))}${S('#/admin/quotes',qt,t('ad.quotes'),t('ad.total'))}${S('#/admin/quotes',qp,t('ad.quotes'),t('ad.pend'))}${S('#/admin/quotes',qu,t('ad.quotes'),t('ad.unr'))}</div>
+  <h2 class="sub">${t('ad.quick')}</h2><div class="acts"><a class="btn sm" href="#/admin/games/new">${t('ad.newg')}</a><a class="btn sm ghost" href="#/admin/news/new">${t('ad.newn')}</a><a class="btn sm ghost" href="#/admin/projects/new">${t('ad.newp')}</a><a class="btn sm ghost" href="#/admin/quotes">${t('ad.quotes')}</a></div>
   <h2 class="sub">${t('ad.recent')}</h2>`+(rm.length?rm.map(m=>`<a class="item ${m.read?'':'unread'}" href="#/admin/messages"><div><b>${esc(m.name)}</b>${m.subject?` — ${esc(m.subject)}`:''}<br><span class="muted">${fmt(m.created_at)}</span></div></a>`).join(''):empty());
 }
 const bind=(tab,reload)=>{$('#ac').onclick=async e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset;
@@ -287,8 +361,8 @@ const bind=(tab,reload)=>{$('#ac').onclick=async e=>{const b=e.target.closest('b
   }catch(er){toast(er.message,1)}}};
 async function adList(tab){
   const F=(adList.f=adList.f||{})[tab]||((adList.f[tab])={q:'',s:''});
-  const r=await q(sb.from(tab).select('id,slug,title_pt,status,updated_at'+(tab==='games'?',featured':'')).order('updated_at',{ascending:false}));
-  const row=x=>`<div class="item"><div><b>${x.featured?'★ ':''}${esc(x.title_pt)}</b><br><span class="muted">/${esc(x.slug)} · ${t('st.'+x.status)} · ${fmt(x.updated_at)}</span></div><div class="acts"><a class="btn sm ghost" href="#/admin/${tab}/edit/${x.id}">${t('ad.edit')}</a><button class="btn sm ghost" data-tg="${x.id}" data-s="${x.status}">${x.status==='published'?t('ad.unpub'):t('ad.pub')}</button>${tab==='games'?`<button class="btn sm ghost" data-ft="${x.id}" data-f="${!!x.featured}">${x.featured?t('ad.unfeat'):t('ad.feat')}</button>`:''}<button class="btn sm ghost" data-dup="${x.id}">${t('ad.dup')}</button>${x.status==='published'?`<a class="btn sm ghost" href="#/${tab}/${encodeURIComponent(x.slug)}">${t('ad.view')}</a>`:''}<button class="btn sm danger" data-rm="${x.id}">${t('ad.del')}</button></div></div>`;
+  const r=await q(sb.from(tab).select('id,slug,title_pt,status,updated_at'+(tab!=='news'?',featured':'')).order('updated_at',{ascending:false}));
+  const row=x=>`<div class="item"><div><b>${x.featured?'★ ':''}${esc(x.title_pt)}</b><br><span class="muted">/${esc(x.slug)} · ${t('st.'+x.status)} · ${fmt(x.updated_at)}</span></div><div class="acts"><a class="btn sm ghost" href="#/admin/${tab}/edit/${x.id}">${t('ad.edit')}</a><button class="btn sm ghost" data-tg="${x.id}" data-s="${x.status}">${x.status==='published'?t('ad.unpub'):t('ad.pub')}</button>${tab!=='news'?`<button class="btn sm ghost" data-ft="${x.id}" data-f="${!!x.featured}">${x.featured?t('ad.unfeat'):t('ad.feat')}</button>`:''}<button class="btn sm ghost" data-dup="${x.id}">${t('ad.dup')}</button>${x.status==='published'?`<a class="btn sm ghost" href="#/${tab==='projects'?'portfolio':tab}/${encodeURIComponent(x.slug)}">${t('ad.view')}</a>`:''}<button class="btn sm danger" data-rm="${x.id}">${t('ad.del')}</button></div></div>`;
   $('#ac').innerHTML=`<div class="row"><h1>${t('ad.'+tab)}</h1><a class="btn sm" href="#/admin/${tab}/new">${t('ad.new')}</a></div><div class="filters adf"><input id="aq" type="search" placeholder="${t('ad.search')}" aria-label="${t('ad.search')}" value="${esc(F.q)}"><select id="as" aria-label="${t('status')}"><option value="">${t('ad.all')}</option><option value="published" ${F.s==='published'?'selected':''}>${t('ad.pubd')}</option><option value="draft" ${F.s==='draft'?'selected':''}>${t('ad.drafts')}</option></select></div><p class="muted" id="an" aria-live="polite"></p><div id="al"></div>`;
   const draw=()=>{F.q=$('#aq').value.trim();F.s=$('#as').value;const s=F.q.toLowerCase();
     const f=r.filter(x=>(!F.s||x.status===F.s)&&(!s||(x.title_pt+' '+x.slug).toLowerCase().includes(s)));
@@ -306,6 +380,21 @@ async function adMsgs(){
     $('#an').textContent=f.length+' '+t('ad.count');$('#al').innerHTML=f.length?f.map(row).join(''):(r.length?`<p class="muted">${t('none')}</p>`:empty())};
   ['aq','as'].forEach(i=>$('#'+i).addEventListener('input',draw));draw();
   bind('messages',adMsgs);
+}
+async function adQuotes(){
+  const F=adQuotes.f=adQuotes.f||{q:'',s:''},QS=['new','review','negotiation','approved','declined','done'];
+  const r=await q(sb.from('quotes').select('*').order('created_at',{ascending:false}));
+  const row=m=>`<div class="item col ${m.read?'':'unread'}"><div style="width:100%"><b>${esc(m.name)}</b> &lt;${esc(m.email)}&gt; <span class="muted">${fmt(m.created_at)}</span><br><span class="muted">${[m.company,t(m.service==='other'?'q.other':'pc.'+m.service),m.deadline,m.budget,t(m.contact_pref==='meeting'?'q.pm':'q.pe')].filter(Boolean).map(esc).join(' · ')}</span><br><span class="pre">${esc(m.idea)}</span>${m.features?`<br><b>${t('q.feat')}</b><br><span class="pre">${esc(m.features)}</span>`:''}<div class="fld"><label for="n_${m.id}">${t('ad.notes')}</label><textarea id="n_${m.id}" data-n="${m.id}" rows="2" maxlength="2000">${esc(m.notes||'')}</textarea></div></div><div class="acts"><select data-qs="${m.id}" aria-label="${t('status')}">${QS.map(s=>`<option value="${s}" ${m.status===s?'selected':''}>${t('qs.'+s)}</option>`).join('')}</select><a class="btn sm" href="mailto:${esc(m.email)}">${t('ad.reply')}</a>${m.read?`<button class="btn sm ghost" data-ur="${m.id}">${t('ad.unreadm')}</button>`:`<button class="btn sm ghost" data-rd="${m.id}">${t('ad.mark')}</button>`}<button class="btn sm danger" data-rm="${m.id}">${t('ad.del')}</button></div></div>`;
+  $('#ac').innerHTML=`<h1>${t('ad.quotes')}</h1><div class="filters adf"><input id="aq" type="search" placeholder="${t('ad.search')}" aria-label="${t('ad.search')}" value="${esc(F.q)}"><select id="as" aria-label="${t('status')}">${[['',t('ad.all')],...QS.map(s=>[s,t('qs.'+s)])].map(([v,l])=>`<option value="${v}" ${F.s===v?'selected':''}>${l}</option>`).join('')}</select></div><p class="muted" id="an" aria-live="polite"></p><div id="al"></div>`;
+  const draw=()=>{F.q=$('#aq').value.trim();F.s=$('#as').value;const s=F.q.toLowerCase();
+    const f=r.filter(m=>(!F.s||m.status===F.s)&&(!s||(m.name+' '+m.email+' '+(m.company||'')+' '+m.idea).toLowerCase().includes(s)));
+    $('#an').textContent=f.length+' '+t('ad.count');$('#al').innerHTML=f.length?f.map(row).join(''):(r.length?`<p class="muted">${t('none')}</p>`:empty())};
+  ['aq','as'].forEach(i=>$('#'+i).addEventListener('input',draw));draw();
+  $('#ac').onchange=async e=>{const i=e.target;try{
+    if(i.dataset.qs){await q(sb.from('quotes').update({status:i.value,read:true}).eq('id',i.dataset.qs));toast(t('ad.saved'));adQuotes()}
+    else if(i.dataset.n){const nv=i.value.trim()||null;await q(sb.from('quotes').update({notes:nv}).eq('id',i.dataset.n));r.find(x=>x.id===i.dataset.n).notes=nv;toast(t('ad.saved'))}
+  }catch(er){toast(er.message,1)}};
+  bind('quotes',adQuotes);
 }
 async function adSettings(){
   const r=await q(sb.from('settings').select('value').eq('key','community_links').maybeSingle());
@@ -364,8 +453,8 @@ async function adForm(tab,id){
 /* ---------- Cabeçalho, rodapé, roteador e sessão ---------- */
 let user=null,isAdmin=false,uid=null;
 function renderHd(r){
-  const nav=[['','home'],['games','games'],['news','news'],['community','community'],['contact','contact']].map(([k,n])=>`<a href="#/${k}" ${(r||'')===k?'aria-current="page"':''}>${t('nav.'+n)}</a>`).join('');
-  $('#hd').innerHTML=`<header class="top"><div class="wrap bar"><a class="brand" href="#/" aria-label="Black Forge"><svg class="lg" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="fg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#F26B21"/><stop offset="1" stop-color="#FFA24D"/></linearGradient></defs><path d="M16 1c1 5 6 8 6 14a6 6 0 0 1-12 0c0-2 1-3.500 2-5 .5 2 1.500 3 2.500 3C14 9 14 5 16 1z" fill="url(#fg)"/><path d="M3 25h26l-2 4H5z" fill="#F2EFE9"/><path d="M7 22h18v3H7z" fill="#F2EFE9" opacity=".85"/></svg><span class="tx"><b><span>BLACK</span><em>FORGE</em></b><small>${t('hero.eyebrow')}</small></span></a><button class="burger" id="bg" aria-expanded="false" aria-controls="mn" aria-label="${t('nav.menu')}"><i></i><i></i><i></i></button><nav id="mn" class="menu">${nav}${isAdmin?`<a href="#/admin" ${r==='admin'?'aria-current="page"':''}>${t('nav.admin')}</a>`:''}${sb?(user?`<button class="btn sm" id="lo">${t('nav.logout')}</button>`:`<a class="btn sm" href="#/login">${t('nav.login')}</a>`):''}<button class="lang" id="lg" aria-label="${t('lang')}">${L==='pt'?'EN':'PT'}</button></nav></div></header>`;
+  const nav=[['','home'],['services','services'],['portfolio','portfolio'],['games','games'],['news','news']].map(([k,n])=>`<a href="#/${k}" ${(r||'')===k?'aria-current="page"':''}>${t('nav.'+n)}</a>`).join('');
+  $('#hd').innerHTML=`<header class="top"><div class="wrap bar"><a class="brand" href="#/" aria-label="Black Forge"><svg class="lg" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="fg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#F26B21"/><stop offset="1" stop-color="#FFA24D"/></linearGradient></defs><path d="M16 1c1 5 6 8 6 14a6 6 0 0 1-12 0c0-2 1-3.500 2-5 .5 2 1.500 3 2.500 3C14 9 14 5 16 1z" fill="url(#fg)"/><path d="M3 25h26l-2 4H5z" fill="#F2EFE9"/><path d="M7 22h18v3H7z" fill="#F2EFE9" opacity=".85"/></svg><span class="tx"><b><span>BLACK</span><em>FORGE</em></b><small>${t('hero.eyebrow')}</small></span></a><button class="burger" id="bg" aria-expanded="false" aria-controls="mn" aria-label="${t('nav.menu')}"><i></i><i></i><i></i></button><nav id="mn" class="menu">${nav}<a class="btn sm" href="#/quote">${t('nav.quote')}</a>${isAdmin?`<a href="#/admin" ${r==='admin'?'aria-current="page"':''}>${t('nav.admin')}</a>`:''}${sb?(user?`<button class="btn sm ghost" id="lo">${t('nav.logout')}</button>`:`<a class="btn sm ghost" href="#/login">${t('nav.login')}</a>`):''}<button class="lang" id="lg" aria-label="${t('lang')}">${L==='pt'?'EN':'PT'}</button></nav></div></header>`;
   $('#bg').onclick=()=>{const o=$('#mn').classList.toggle('open');$('#bg').setAttribute('aria-expanded',o)};
   $('#mn').addEventListener('click',e=>{if(e.target.closest('a'))$('#mn').classList.remove('open')});
   $('#lg').onclick=()=>{L=L==='pt'?'en':'pt';try{localStorage.setItem('bf_lang',L)}catch(e){}
@@ -373,7 +462,9 @@ function renderHd(r){
     if(/\/(edit|new)/.test(location.hash))renderHd(location.hash.split('/')[1]);else route()};
   if($('#lo'))$('#lo').onclick=()=>sb.auth.signOut();
 }
-function renderFt(){$('#sk').textContent=t('skip');$('#ft').innerHTML=`<footer class="foot"><div class="wrap"><span>© ${new Date().getFullYear()} Black Forge. ${t('ft')}</span><a href="#/privacy">${t('pv.title')}</a></div></footer>`}
+let SOC=[];
+function renderFt(){$('#sk').textContent=t('skip');const lk=(h,l)=>`<a href="${h}">${t(l)}</a>`;
+  $('#ft').innerHTML=`<footer class="foot"><div class="wrap fg"><div><b>BLACK FORGE</b><p>${t('ft.sum')}</p></div><nav aria-label="${t('ft.nav')}"><b>${t('ft.nav')}</b>${lk('#/services','nav.services')}${lk('#/portfolio','nav.portfolio')}${lk('#/games','nav.games')}${lk('#/news','nav.news')}${lk('#/community','nav.community')}</nav><div><b>${t('nav.contact')}</b>${lk('#/quote','nav.quote')}${lk('#/contact','nav.contact')}${SOC.map(([k,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(k)}</a>`).join('')}</div></div><div class="wrap fc"><span>© ${new Date().getFullYear()} Black Forge. ${t('ft')}</span><a href="#/privacy">${t('pv.title')}</a></div></footer>`}
 async function route(){
   const h=location.hash.replace(/^#\/?/,''),p=h.split('/').map(x=>{try{return decodeURIComponent(x)}catch(e){return x}});
   const [r,a,b,c]=p;renderHd(r);
@@ -381,7 +472,7 @@ async function route(){
     if(!r||/^(access_token|error)/.test(r))await home();
     else if(r==='games')a?await detail('games',a):await gamesPage();
     else if(r==='news')a?await detail('news',a):await newsPage();
-    else if(r==='community')await comm();
+    else if(r==='services')services();else if(r==='portfolio')a?await detail('projects',a):await portfolio();else if(r==='quote')quote(a);else if(r==='community')await comm();
     else if(r==='contact')contact();
     else if(r==='login')login();
     else if(r==='reset')reset();
@@ -394,6 +485,7 @@ async function route(){
 $('#dx').onclick=()=>$('#dlg').close();
 document.documentElement.lang=L==='pt'?'pt-BR':'en';renderFt();
 window.addEventListener('hashchange',route);
+if(sb)sb.from('settings').select('value').eq('key','community_links').maybeSingle().then(r=>{SOC=(Array.isArray(r.data?.value)?r.data.value:[]).filter(x=>x&&x.label&&/^https:\/\//.test(x.url)).map(x=>[x.label,x.url]);renderFt()},()=>{});
 if(sb){
   sb.auth.onAuthStateChange((ev,s)=>setTimeout(async()=>{
     const u=s?.user||null,changed=(u?.id||null)!==uid;uid=u?.id||null;user=u;
